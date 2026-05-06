@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dom — Favicon Preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #2a2510; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; font-family: monospace; color: #c8b870; gap: 40px; padding: 40px; }
+    h2 { letter-spacing: 3px; font-size: 13px; }
+    .row { display: flex; align-items: flex-end; gap: 48px; }
+    .box { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .label { font-size: 11px; color: #555; }
+    img { image-rendering: pixelated; display: block; }
+  </style>
+</head>
+<body>
+  <h2>dom — favicon preview</h2>
+  <div class="row">
+    <div class="box">
+      <img src="favicon.svg" width="256" height="256"/>
+      <div class="label">256×256 — full detail</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;align-items:center;">
+      <div class="box">
+        <img src="favicon.svg" width="64" height="64"/>
+        <div class="label">64×64</div>
+      </div>
+      <div class="box">
+        <img src="favicon.svg" width="32" height="32"/>
+        <div class="label">32×32 — tab size</div>
+      </div>
+      <div class="box">
+        <img src="favicon.svg" width="16" height="16"/>
+        <div class="label">16×16</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
