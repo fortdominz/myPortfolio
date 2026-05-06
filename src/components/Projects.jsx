@@ -27,17 +27,21 @@ function ProjectCard({ project }) {
         borderRadius: "10px",
         overflow: "hidden",
         backgroundColor: isLocked ? "var(--locked-bg)" : "var(--bg)",
-        transition: "box-shadow 0.2s, border-color 0.2s",
+        transition: "box-shadow 0.22s, border-color 0.22s, transform 0.22s",
         cursor: "default",
         opacity: isLocked ? 0.85 : 1,
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = isLocked ? "var(--border)" : "var(--accent)"
-        e.currentTarget.style.boxShadow = isLocked ? "none" : "0 4px 24px rgba(126,184,212,0.12)"
+        if (!isLocked) {
+          e.currentTarget.style.borderColor = "var(--accent)"
+          e.currentTarget.style.boxShadow = "0 8px 32px rgba(126,184,212,0.15)"
+          e.currentTarget.style.transform = "translateY(-4px)"
+        }
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = "var(--border)"
         e.currentTarget.style.boxShadow = "none"
+        e.currentTarget.style.transform = "translateY(0)"
       }}
     >
       {/* Window title bar */}
@@ -134,6 +138,15 @@ function ProjectCard({ project }) {
                   onMouseLeave={e => e.target.style.textDecoration = "none"}
                 >
                   GitHub ↗
+                </a>
+              )}
+              {project.demo && (
+                <a href={project.demo} target="_blank" rel="noreferrer"
+                  style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
+                  onMouseEnter={e => e.target.style.textDecoration = "underline"}
+                  onMouseLeave={e => e.target.style.textDecoration = "none"}
+                >
+                  Demo ↗
                 </a>
               )}
               {project.link && (

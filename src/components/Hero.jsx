@@ -5,13 +5,13 @@ const lines = [
   "building in public, one commit at a time.",
   "turning ideas into tools people actually use.",
   "I build for myself first. Then I realize everyone else needs it too.",
-  "CS @ Fisk · 4.0 · Spring 2025 →",
+  "CS @ Fisk · 4.0 · graduating May/Dec. 2028",
 ]
 
 export default function Hero() {
   const [lineIdx, setLineIdx] = useState(0)
   const [displayed, setDisplayed] = useState("")
-  const [phase, setPhase] = useState("typing") // typing | pause | erasing
+  const [phase, setPhase] = useState("typing")
 
   useEffect(() => {
     const target = lines[lineIdx]
@@ -38,128 +38,139 @@ export default function Hero() {
   }, [displayed, phase, lineIdx])
 
   return (
-    <section id="top" className="max-w-5xl mx-auto px-6" style={{ paddingTop: "5rem", paddingBottom: "6rem" }}>
-      <div className="max-w-2xl">
-        {/* Eyebrow */}
-        <p className="mono text-xs mb-6 tracking-wider uppercase"
-          style={{ color: "var(--accent)" }}>
-          Available for internships · Summer 2026
-        </p>
+    <section id="top"
+      style={{ paddingTop: "5rem", paddingBottom: "6rem", paddingLeft: "1.5rem", paddingRight: "1.5rem", position: "relative" }}>
 
-        {/* Name */}
-        <h1 style={{
-          fontSize: "clamp(2.8rem, 6vw, 5rem)",
-          fontWeight: 700,
-          letterSpacing: "-0.02em",
-          color: "var(--text)",
-          marginBottom: "1.25rem",
-          fontFamily: "Fraunces, serif",
-        }}>
-          Dominion Eze
-        </h1>
+      {/* Dot grid background */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+        opacity: 0.6,
+        pointerEvents: "none",
+        maskImage: "radial-gradient(ellipse 80% 100% at 60% 50%, black 30%, transparent 100%)",
+        WebkitMaskImage: "radial-gradient(ellipse 80% 100% at 60% 50%, black 30%, transparent 100%)",
+      }} />
 
-        {/* Tagline */}
-        <p style={{
-          fontSize: "1.2rem",
-          color: "var(--muted)",
-          marginBottom: "2rem",
-          maxWidth: "520px",
-          lineHeight: 1.6,
-          fontFamily: "Geist, sans-serif",
-          fontWeight: 400,
-        }}>
-          {profile.tagline}
-        </p>
+      {/* Two-column layout */}
+      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "48px" }}>
 
-        {/* Terminal typing line */}
-        <div style={{
-          backgroundColor: "var(--terminal-bg)",
-          borderRadius: "8px",
-          padding: "12px 18px",
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          marginBottom: "2.5rem",
-          minWidth: "340px",
-        }}>
-          <span style={{ color: "var(--terminal-green)", fontFamily: "JetBrains Mono, monospace", fontSize: "0.82rem" }}>
-            ~/dominion
-          </span>
-          <span style={{ color: "var(--terminal-muted)", fontFamily: "JetBrains Mono, monospace", fontSize: "0.82rem" }}>
-            $
-          </span>
-          <span style={{ color: "var(--terminal-text)", fontFamily: "JetBrains Mono, monospace", fontSize: "0.82rem" }}>
-            {displayed}
-            <span style={{
-              display: "inline-block",
-              width: "2px",
-              height: "0.9em",
-              backgroundColor: "var(--accent)",
-              marginLeft: "2px",
-              verticalAlign: "middle",
-              animation: "blink 1s step-end infinite",
-            }} />
-          </span>
+        {/* Left — text */}
+        <div style={{ flex: 1, maxWidth: "560px" }}>
+          <p className="mono text-xs mb-6 tracking-wider uppercase" style={{ color: "var(--accent)" }}>
+            Available for internships · Summer 2026
+          </p>
+
+          <h1 style={{
+            fontSize: "clamp(2.8rem, 6vw, 5rem)",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+            color: "var(--text)",
+            marginBottom: "1.25rem",
+            fontFamily: "Fraunces, serif",
+          }}>
+            Dominion Eze
+          </h1>
+
+          <p style={{
+            fontSize: "1.2rem",
+            color: "var(--muted)",
+            marginBottom: "2rem",
+            maxWidth: "480px",
+            lineHeight: 1.6,
+            fontFamily: "Geist, sans-serif",
+            fontWeight: 400,
+          }}>
+            {profile.tagline}
+          </p>
+
+          {/* Terminal typing line */}
+          <div style={{
+            backgroundColor: "var(--terminal-bg)",
+            borderRadius: "8px",
+            padding: "12px 18px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            marginBottom: "2.5rem",
+            minWidth: "340px",
+          }}>
+            <span style={{ color: "var(--terminal-green)", fontFamily: "JetBrains Mono, monospace", fontSize: "0.82rem" }}>
+              ~/dominion
+            </span>
+            <span style={{ color: "var(--terminal-muted)", fontFamily: "JetBrains Mono, monospace", fontSize: "0.82rem" }}>
+              $
+            </span>
+            <span style={{ color: "var(--terminal-text)", fontFamily: "JetBrains Mono, monospace", fontSize: "0.82rem" }}>
+              {displayed}
+              <span style={{
+                display: "inline-block",
+                width: "2px",
+                height: "0.9em",
+                backgroundColor: "var(--accent)",
+                marginLeft: "2px",
+                verticalAlign: "middle",
+                animation: "blink 1s step-end infinite",
+              }} />
+            </span>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-3">
+            <a href={profile.github} target="_blank" rel="noreferrer"
+              style={{ padding: "10px 20px", backgroundColor: "var(--terminal-bg)", color: "var(--terminal-text)", borderRadius: "6px", fontSize: "0.88rem", fontWeight: 500, textDecoration: "none", transition: "opacity 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.opacity = "0.8"}
+              onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
+              GitHub ↗
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer"
+              style={{ padding: "10px 20px", border: "1px solid var(--border)", color: "var(--text)", borderRadius: "6px", fontSize: "0.88rem", fontWeight: 500, textDecoration: "none", transition: "border-color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.borderColor = "var(--accent)"}
+              onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}>
+              LinkedIn ↗
+            </a>
+            <a href="/resume.pdf" download
+              style={{ padding: "10px 20px", backgroundColor: "var(--accent)", color: "#fff", borderRadius: "6px", fontSize: "0.88rem", fontWeight: 500, textDecoration: "none", transition: "background-color 0.15s" }}
+              onMouseEnter={e => e.currentTarget.style.backgroundColor = "var(--accent-dark)"}
+              onMouseLeave={e => e.currentTarget.style.backgroundColor = "var(--accent)"}>
+              Resume ↓
+            </a>
+          </div>
         </div>
 
-        {/* CTA links */}
-        <div className="flex flex-wrap gap-3">
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "var(--terminal-bg)",
-              color: "var(--terminal-text)",
-              borderRadius: "6px",
-              fontSize: "0.88rem",
-              fontWeight: 500,
-              textDecoration: "none",
-              transition: "opacity 0.15s",
-            }}
-            onMouseEnter={e => e.currentTarget.style.opacity = "0.8"}
-            onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-          >
-            GitHub ↗
-          </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              padding: "10px 20px",
-              border: "1px solid var(--border)",
-              color: "var(--text)",
-              borderRadius: "6px",
-              fontSize: "0.88rem",
-              fontWeight: 500,
-              textDecoration: "none",
-              transition: "border-color 0.15s",
-            }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = "var(--accent)"}
-            onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}
-          >
-            LinkedIn ↗
-          </a>
-          <a
-            href="/resume.pdf"
-            download
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "var(--accent)",
-              color: "#fff",
-              borderRadius: "6px",
-              fontSize: "0.88rem",
-              fontWeight: 500,
-              textDecoration: "none",
-              transition: "background-color 0.15s",
-            }}
-            onMouseEnter={e => e.currentTarget.style.backgroundColor = "var(--accent-dark)"}
-            onMouseLeave={e => e.currentTarget.style.backgroundColor = "var(--accent)"}
-          >
-            Resume ↓
-          </a>
+        {/* Right — headshot */}
+        <div style={{ flexShrink: 0, position: "relative" }}>
+          <div style={{
+            width: "220px",
+            height: "220px",
+            borderRadius: "50%",
+            padding: "4px",
+            background: "linear-gradient(135deg, var(--accent), transparent 60%)",
+            boxShadow: "0 0 40px rgba(126,184,212,0.18)",
+          }}>
+            <img
+              src="/headshot.jpg"
+              alt="Dominion Eze"
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                objectFit: "cover",
+                objectPosition: "center top",
+                display: "block",
+              }}
+            />
+          </div>
+          {/* Glow ring */}
+          <div style={{
+            position: "absolute",
+            inset: "-8px",
+            borderRadius: "50%",
+            border: "1px solid var(--accent)",
+            opacity: 0.25,
+            pointerEvents: "none",
+          }} />
         </div>
       </div>
 

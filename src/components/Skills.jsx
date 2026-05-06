@@ -1,10 +1,10 @@
 import { skills } from "../data"
 
 const colors = {
-  "Languages":        { bg: "rgba(126,184,212,0.1)", text: "#5A9AB8" },
+  "Languages":          { bg: "rgba(126,184,212,0.1)", text: "#5A9AB8" },
   "Frameworks & Tools": { bg: "rgba(126,212,153,0.1)", text: "#3A9A60" },
   "Currently Learning": { bg: "rgba(255,184,100,0.1)", text: "#B87820" },
-  "AI-Augmented Dev": { bg: "rgba(180,140,255,0.12)", text: "#8060C0" },
+  "AI-Augmented Dev":   { bg: "rgba(180,140,255,0.12)", text: "#8060C0" },
 }
 
 export default function Skills() {
@@ -22,17 +22,12 @@ export default function Skills() {
         </p>
       </div>
 
-      <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
         {skills.map(group => {
           const c = colors[group.category] || { bg: "rgba(126,184,212,0.1)", text: "#5A9AB8" }
           return (
-            <div key={group.category} style={{
-              border: "1px solid var(--border)",
-              borderRadius: "10px",
-              padding: "20px",
-              backgroundColor: "var(--bg)",
-            }}>
-              <p className="mono text-xs mb-4 font-medium" style={{ color: c.text }}>
+            <div key={group.category}>
+              <p className="mono text-xs mb-3 font-medium" style={{ color: c.text }}>
                 {group.category}
               </p>
               <div className="flex flex-wrap gap-2">

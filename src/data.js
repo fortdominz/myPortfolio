@@ -29,7 +29,7 @@ export const skills = [
   },
   {
     category: "Frameworks & Tools",
-    items: ["React", "FastAPI", "MongoDB", "Node.js", "Django", "Bootstrap", "Git"],
+    items: ["React", "FastAPI", "MongoDB", "Node.js", "Django", "Bootstrap", "Streamlit", "Pytest", "Gemini GenAI API", "Spotify Web API", "Git"],
   },
   {
     category: "Currently Learning",
@@ -37,7 +37,7 @@ export const skills = [
   },
   {
     category: "AI-Augmented Dev",
-    items: ["Claude Code — guided development, code review, agentic workflows"],
+    items: ["Claude Code — guided development, code review, agentic workflows", "Ollama (Llama 3.2) — local AI inference"],
   },
 ]
 
@@ -51,7 +51,7 @@ export const projects = [
       "6-phase CLI app across 4 modules — tracking 13 fields through a 9-stage pipeline with full CRUD, 5-sort modes, keyword search, deadline alerts, CSV export, and a terminal analytics dashboard. Architected with an isolated data layer for planned MongoDB migration.",
     stack: ["Python", "OOP", "JSON", "CLI"],
     github: "https://github.com/fortdominz/job-application-tracker",
-    demo: null,
+    demo: "https://www.youtube.com/watch?v=IAcH4Dfapi8",
     terminal: [
       { delay: 0,   type: "input",  text: "python main.py" },
       { delay: 800, type: "output", text: "┌─────────────────────────────────┐" },
@@ -73,6 +73,37 @@ export const projects = [
       { delay: 3100, type: "output", text: "  Stripe           Eng Intern        Interview" },
       { delay: 3200, type: "output", text: "" },
       { delay: 3300, type: "output", text: "  3 applications tracked." },
+    ],
+  },
+  {
+    id: "musictastematch",
+    name: "MusicTasteMatch",
+    status: "complete",
+    tagline: "Describe your mood in plain English. Get songs that actually match.",
+    description:
+      "AI-powered music recommendation system built with a 6-stage pipeline: Llama 3.2 converts natural language into structured preference profiles, searches the live Spotify catalog, scores songs by genre/mood/energy match, runs a bias detector with confidence scoring, gets an AI critique pass, and logs every session for auditability. v2.0 — evolved from a static CSV to full Spotify API + local LLM inference.",
+    stack: ["Python", "Llama 3.2", "Ollama", "Gemini GenAI API", "Spotify API", "Streamlit", "Pytest"],
+    github: "https://github.com/fortdominz/musictastematch-applied-ai",
+    demo: "https://www.loom.com/share/2e682286e00e4854b13feece69df9ee6",
+    terminal: [
+      { delay: 0,    type: "input",  text: "python main.py" },
+      { delay: 700,  type: "output", text: "MusicTasteMatch v2.0 — AI Music Recommender" },
+      { delay: 900,  type: "output", text: "" },
+      { delay: 1000, type: "input",  text: "Describe your vibe: late night study, lo-fi, mellow" },
+      { delay: 1600, type: "output", text: "⟳ Building preference profile via Llama 3.2..." },
+      { delay: 2200, type: "output", text: "  genre: lo-fi / genre: chill  mood: focused" },
+      { delay: 2400, type: "output", text: "  energy: 0.32  valence: 0.48  tempo: ~85bpm" },
+      { delay: 2700, type: "output", text: "" },
+      { delay: 2800, type: "output", text: "⟳ Searching Spotify catalog..." },
+      { delay: 3300, type: "output", text: "  Found 48 candidate tracks" },
+      { delay: 3500, type: "output", text: "" },
+      { delay: 3600, type: "output", text: "✓ Top recommendations:" },
+      { delay: 3800, type: "output", text: "  1. Snowflake — idealism           score: 0.94" },
+      { delay: 3950, type: "output", text: "  2. Quiet Hours — Float Away       score: 0.91" },
+      { delay: 4100, type: "output", text: "  3. Philanthrope — Reminiscing     score: 0.88" },
+      { delay: 4300, type: "output", text: "" },
+      { delay: 4400, type: "output", text: "  bias confidence: 0.12 ✓ (no dominance detected)" },
+      { delay: 4600, type: "output", text: "  session logged → sessions/2026-05-05.json" },
     ],
   },
   {
