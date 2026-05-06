@@ -1,16 +1,46 @@
-# React + Vite
+# myPortfolio — dominioneze.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site for Dominion Eze. Built to showcase projects, experience, and skills in a clean, terminal-inspired design.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React** — component-based UI
+- **Vite** — fast dev server and build tool
+- **Tailwind CSS v4** — utility classes via `@tailwindcss/vite` plugin
+- **CSS custom properties** — full light/dark theme system using `[data-theme="dark"]`
 
-## React Compiler
+## Typography
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Fraunces** — headings and display text
+- **Geist** — body and UI text
+- **JetBrains Mono** — terminal blocks, labels, and monospace accents
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Light/dark mode toggle with localStorage persistence
+- Animated typewriter hero with cycling lines
+- Scripted terminal demo components per project
+- Data-driven architecture — all content lives in `src/data.js`
+- Smooth scroll with dynamic nav height compensation
+- Clickable certification badges that open PDFs
+- Planned project cards locked with padlock treatment
+
+## Project Structure
+
+```
+src/
+  components/     # Nav, Hero, About, Skills, Projects, Education, Experience, Contact, Footer
+  data.js         # All content — profile, projects, experience, education, certifications
+  index.css       # CSS variables, theme definitions, global styles
+  ThemeContext.jsx # Dark mode state and toggle
+public/
+  resume.pdf      # Downloadable resume
+  cert-*.pdf      # Certificate files
+```
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
+```
