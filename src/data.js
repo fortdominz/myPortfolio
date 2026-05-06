@@ -82,9 +82,10 @@ export const projects = [
     tagline: "Describe your mood in plain English. Get songs that actually match.",
     description:
       "AI-powered music recommendation system built with a 6-stage pipeline: Llama 3.2 converts natural language into structured preference profiles, searches the live Spotify catalog, scores songs by genre/mood/energy match, runs a bias detector with confidence scoring, gets an AI critique pass, and logs every session for auditability. v2.0 — evolved from a static CSV to full Spotify API + local LLM inference.",
-    stack: ["Python", "Llama 3.2", "Ollama", "Gemini GenAI API", "Spotify API", "Streamlit", "Pytest"],
+    stack: ["Python", "Gemini GenAI API", "Spotify API", "FastAPI", "React", "Pytest"],
     github: "https://github.com/fortdominz/musictastematch-applied-ai",
     demo: "https://www.loom.com/share/2e682286e00e4854b13feece69df9ee6",
+    app: "https://musictastematchai.dominioneze.dev",
     terminal: [
       { delay: 0,    type: "input",  text: "python main.py" },
       { delay: 700,  type: "output", text: "MusicTasteMatch v2.0 — AI Music Recommender" },

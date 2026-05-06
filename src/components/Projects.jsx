@@ -158,6 +158,15 @@ function ProjectCard({ project }) {
                   Live ↗
                 </a>
               )}
+              {project.app && (
+                <a href={project.app} target="_blank" rel="noreferrer"
+                  style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
+                  onMouseEnter={e => e.target.style.textDecoration = "underline"}
+                  onMouseLeave={e => e.target.style.textDecoration = "none"}
+                >
+                  Open App ↗
+                </a>
+              )}
               {project.terminal && (
                 <button
                   onClick={() => setExpanded(x => !x)}
