@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ThemeProvider } from "./ThemeContext"
 import Nav from "./components/Nav"
 import Hero from "./components/Hero"
@@ -15,6 +15,10 @@ import FadeIn from "./components/FadeIn"
 
 export default function App() {
   const [booted, setBooted] = useState(false)
+
+  useEffect(() => {
+    document.title = "Dominion Eze — AI Engineer & System Architect"
+  }, [])
 
   return (
     <ThemeProvider>
