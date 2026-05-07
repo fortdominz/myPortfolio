@@ -361,7 +361,7 @@ export const education = [
     school: "Oshboug Modern Secondary School",
     location: "Lagos, Nigeria",
     degree: "High School Diploma — Science",
-    period: "Jan. 2016 – Sep. 2022",
+    period: "Jan. 2016 – Sep. 2021",
     gpa: null,
     highlights: [],
   },
