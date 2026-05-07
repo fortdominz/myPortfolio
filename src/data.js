@@ -113,10 +113,10 @@ export const projects = [
     status: "complete",
     tagline: "Daily accountability, habits, and journaling — all in one place.",
     description:
-      "A 3-model CLI accountability system (Goals, Tasks, Journal) with streak tracking, stale task detection, notes stacking, and postpone history. Feeds daily accountability data into the dominioneze.com analytics layer.",
-    stack: ["Python", "OOP", "JSON", "CLI"],
+      "A full-stack daily accountability app with Goals, Tasks, and Journal. Built with FastAPI + React. Features streak tracking, stale task detection, mood logging, postpone history, and a real-time dashboard.",
+    stack: ["FastAPI", "React", "Vite", "Python", "JSON"],
     github: "https://github.com/fortdominz/daykeep",
-    demo: null,
+    demo: "https://daykeep.dominioneze.dev",
     terminal: [
       { delay: 0,   type: "input",  text: "python main.py" },
       { delay: 800, type: "output", text: "┌──────────────────────────┐" },
