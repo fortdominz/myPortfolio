@@ -149,6 +149,15 @@ function ProjectCard({ project }) {
                   Demo ↗
                 </a>
               )}
+              {project.live && (
+                <a href={project.live} target="_blank" rel="noreferrer"
+                  style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
+                  onMouseEnter={e => e.target.style.textDecoration = "underline"}
+                  onMouseLeave={e => e.target.style.textDecoration = "none"}
+                >
+                  Open App ↗
+                </a>
+              )}
               {project.link && (
                 <a href={project.link} target="_blank" rel="noreferrer"
                   style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}

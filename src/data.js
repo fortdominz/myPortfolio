@@ -85,7 +85,7 @@ export const projects = [
     stack: ["Python", "Gemini GenAI API", "Spotify API", "FastAPI", "React", "Pytest"],
     github: "https://github.com/fortdominz/musictastematch-applied-ai",
     demo: "https://www.loom.com/share/2e682286e00e4854b13feece69df9ee6",
-    app: "https://musictastematchai.dominioneze.dev",
+    live: "https://musictastematchai.dominioneze.dev",
     terminal: [
       { delay: 0,    type: "input",  text: "python main.py" },
       { delay: 700,  type: "output", text: "MusicTasteMatch v2.0 — AI Music Recommender" },
@@ -116,7 +116,8 @@ export const projects = [
       "A full-stack daily accountability app with Goals, Tasks, and Journal. Built with FastAPI + React. Features streak tracking, stale task detection, mood logging, postpone history, and a real-time dashboard.",
     stack: ["FastAPI", "React", "Vite", "Python", "JSON"],
     github: "https://github.com/fortdominz/daykeep",
-    demo: "https://daykeep.dominioneze.dev",
+    demo: null,
+    live: "https://daykeep.dominioneze.dev",
     terminal: [
       { delay: 0,   type: "input",  text: "python main.py" },
       { delay: 800, type: "output", text: "┌──────────────────────────┐" },
