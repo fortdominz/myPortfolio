@@ -368,6 +368,8 @@ export const education = [
 ]
 
 export const certifications = [
+  { name: "AI Fluency for Students", issuer: "Anthropic", file: "/cert-anthropic-ai-fluency.pdf" },
+  { name: "Intermediate Technical Interview Prep (TIP102)", issuer: "CodePath", file: "/cert-codepath-tip102.pdf" },
   { name: "Intro to Web Development", issuer: "CodePath", file: "/cert-codepath-web101.pdf" },
   { name: "Intro to Technical Interview Prep (TIP101)", issuer: "CodePath", file: "/cert-codepath-tip101.pdf" },
   { name: "Intro to CS Interview Prep (CIR)", issuer: "CodePath", file: "/cert-codepath-cir.pdf" },
