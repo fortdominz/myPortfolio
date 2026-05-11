@@ -44,7 +44,7 @@ export const skills = [
 export const projects = [
   {
     id: "job-tracker",
-    name: "Job Application Tracker",
+    name: "Job Application Tracker v1.0",
     status: "complete",
     tagline: "A CLI tool to track every internship application in one place.",
     description:
@@ -77,7 +77,7 @@ export const projects = [
   },
   {
     id: "musictastematch",
-    name: "MusicTasteMatch",
+    name: "MusicTasteMatch v3.0",
     status: "complete",
     tagline: "Describe your mood in plain English. Get songs that actually match.",
     description:
@@ -109,7 +109,7 @@ export const projects = [
   },
   {
     id: "daykeep",
-    name: "DayKeep",
+    name: "DayKeep v2.0",
     status: "complete",
     tagline: "Daily accountability, habits, and journaling — all in one place.",
     description:
@@ -138,7 +138,7 @@ export const projects = [
   },
   {
     id: "study-tracker",
-    name: "Study Session Tracker",
+    name: "Study Session Tracker v1.0",
     status: "complete",
     tagline: "Track study sessions, subjects, and consistency over time.",
     description:
