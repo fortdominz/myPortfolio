@@ -373,6 +373,6 @@ export const certifications = [
   { name: "AI Engineering (AI110)", issuer: "CodePath", file: "/cert-codepath-ai110.pdf" },
   { name: "Intro to Web Development", issuer: "CodePath", file: "/cert-codepath-web101.pdf" },
   { name: "Intro to Technical Interview Prep (TIP101)", issuer: "CodePath", file: "/cert-codepath-tip101.pdf" },
-  { name: "Intro to CS Interview Prep (CIR)", issuer: "CodePath", file: "/cert-codepath-cir.pdf" },
+  { name: "CodePath In Residence (CIR)", issuer: "CodePath × Fisk University", file: "/cert-codepath-cir.pdf" },
   { name: "Remote Extern", issuer: "Extern × Emboldly", file: "/cert-extern-emboldly.pdf" },
 ]
