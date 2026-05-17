@@ -24,24 +24,51 @@ My pace doesn't have to match anyone else's. I create my own opportunities by be
 
 export const skills = [
   {
-    category: "Languages",
-    items: ["Python", "Java", "JavaScript", "HTML", "CSS", "SQL"],
+    category: "Languages & Scripting",
+    items: ["Python", "Java", "JavaScript", "Bash", "HTML", "CSS", "SQL"],
   },
   {
-    category: "Frameworks & Tools",
-    items: ["React", "FastAPI", "MongoDB", "Node.js", "Django", "Bootstrap", "Streamlit", "Pytest", "Gemini GenAI API", "Spotify Web API", "Git"],
+    category: "Frameworks & Libraries",
+    items: ["React", "FastAPI", "Vite", "Node.js", "Django", "Bootstrap", "MongoDB", "Git"],
   },
   {
-    category: "Currently Learning",
-    items: ["FastAPI", "MongoDB", "SQL", "Kotlin", "Go", "Swift"],
+    category: "Cloud, DevOps & Infra",
+    items: ["Linux", "AWS", "Docker", "Kubernetes", "Terraform", "Ansible", "Jenkins", "GitHub Actions", "GitLab CI/CD", "Helm", "GCP", "Prometheus", "Grafana", "Loki"],
   },
   {
-    category: "AI-Augmented Dev",
-    items: ["Claude Code — guided development, code review, agentic workflows", "Ollama (Llama 3.2) — local AI inference"],
+    category: "AI Tools & Agents",
+    items: ["Gemini AI", "Claude Code", "GitHub Copilot", "Amazon Q"],
   },
 ]
 
 export const projects = [
+  {
+    id: "gatekeep",
+    name: "GateKeep — Facial Recognition Security System",
+    status: "complete",
+    tagline: "Real-time computer vision security. Know who's at the door before they knock.",
+    description:
+      "Built a real-time computer vision security dashboard with an MJPEG camera stream, InsightFace-powered face detection, and cosine similarity matching against an enrolled watchlist. React SOC-style interface includes live feed, alert logging, enrollment, and banned-persons management.",
+    stack: ["Python", "FastAPI", "React", "Vite", "InsightFace", "SQLite"],
+    github: "https://github.com/fortdominz/gatekeep",
+    demo: null,
+    live: "https://gatekeep.dominioneze.dev",
+    terminal: [
+      { delay: 0,    type: "input",  text: "python main.py" },
+      { delay: 700,  type: "output", text: "GateKeep Security Dashboard — starting..." },
+      { delay: 1000, type: "output", text: "" },
+      { delay: 1100, type: "output", text: "  Camera stream:     ACTIVE" },
+      { delay: 1200, type: "output", text: "  Face detection:    InsightFace loaded" },
+      { delay: 1300, type: "output", text: "  Watchlist entries: 4 enrolled" },
+      { delay: 1500, type: "output", text: "" },
+      { delay: 1600, type: "output", text: "⟳ Scanning frame..." },
+      { delay: 2200, type: "output", text: "  Face detected — cosine similarity: 0.91" },
+      { delay: 2500, type: "output", text: "" },
+      { delay: 2600, type: "output", text: "  ⚠ ALERT: Banned person detected" },
+      { delay: 2800, type: "output", text: "  Match: John Doe  confidence: 91%" },
+      { delay: 3000, type: "output", text: "  Alert logged → alerts/2026-05-17.json" },
+    ],
+  },
   {
     id: "job-tracker",
     name: "Job Application Tracker v1.0",
@@ -225,6 +252,16 @@ export const projects = [
 ]
 
 export const experience = [
+  {
+    role: "Fellow",
+    org: "Propel2excel",
+    period: "2026 – Present",
+    location: "Remote",
+    tags: ["Professional Dev", "Leadership", "Career Readiness"],
+    bullets: [
+      "Selected as a fellow in Propel2excel, a program dedicated to accelerating the careers of high-potential students.",
+    ],
+  },
   {
     role: "Expedition EY Participant",
     org: "EY",
