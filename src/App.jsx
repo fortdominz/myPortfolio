@@ -13,7 +13,10 @@ import Footer from "./components/Footer"
 import LoadingScreen from "./components/LoadingScreen"
 import StatusBar from "./components/StatusBar"
 import FadeIn from "./components/FadeIn"
-import LifePeek from "./pages/LifePeek"
+import LifePeekHub    from "./pages/lifepeek/LifePeekHub"
+import LifeJourney   from "./pages/lifepeek/LifeJourney"
+import OpenWorld     from "./pages/lifepeek/OpenWorld"
+import TouchingGrass from "./pages/lifepeek/TouchingGrass"
 
 function Portfolio() {
   const [booted, setBooted] = useState(false)
@@ -51,7 +54,10 @@ export default function App() {
       <ThemeProvider>
         <Routes>
           <Route path="/"         element={<Portfolio />} />
-          <Route path="/lifepeek" element={<LifePeek />} />
+          <Route path="/lifepeek"                element={<LifePeekHub />}    />
+          <Route path="/lifepeek/life-journey"   element={<LifeJourney />}    />
+          <Route path="/lifepeek/open-world"     element={<OpenWorld />}      />
+          <Route path="/lifepeek/touching-grass" element={<TouchingGrass />}  />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

@@ -414,11 +414,55 @@ export const certifications = [
   { name: "Remote Extern", issuer: "Extern × Emboldly", file: "/cert-extern-emboldly.pdf" },
 ]
 
-// ── LIFEPEEK — personal bento grid content ────────────────────────────────────
-// Add entries here. Push to GitHub. Vercel redeploys automatically.
-// colSpan: 1 = normal, 2 = wide (half grid), 4 = full width
-// types: 'hero' | 'stat' | 'story' | 'program' | 'hobby' | 'quote'
+// ── LIFEPEEK ─────────────────────────────────────────────────────────────────
 
+// Life Journey — horizontal timeline milestones
+// types: 'milestone' | 'program' | 'experience' | 'future'
+export const lifejourney = [
+  { id: "fisk-start",    date: "Jan 2025",    title: "Arrived at Fisk University",          type: "milestone",   color: "#2563EB", tag: "Education"   },
+  { id: "stanford",      date: "Apr 2025",    title: "Stanford Code in Place",              type: "program",     color: "#EF4444", tag: "Program"     },
+  { id: "web101",        date: "Apr 2025",    title: "CodePath WEB101",                     type: "program",     color: "#10B981", tag: "Program"     },
+  { id: "oracle",        date: "May 2025",    title: "Oracle REACH",                        type: "program",     color: "#F59E0B", tag: "Program"     },
+  { id: "pwc",           date: "Jul 2025",    title: "PwC Remote Extern",                   type: "experience",  color: "#EF4444", tag: "Experience"  },
+  { id: "summer-build",  date: "Summer 2025", title: "15+ Python Projects Built",           type: "milestone",   color: "#2563EB", tag: "Build Sprint" },
+  { id: "codepath-ai",   date: "Feb 2026",    title: "CodePath AI Engineering Fellow",      type: "program",     color: "#8B5CF6", tag: "Program"     },
+  { id: "codepath-tip",  date: "Feb 2026",    title: "CodePath Technical Interview Prep",   type: "program",     color: "#06B6D4", tag: "Program"     },
+  { id: "ey",            date: "Mar 2026",    title: "EY Expedition",                       type: "program",     color: "#06B6D4", tag: "Program"     },
+  { id: "propel",        date: "2026",        title: "Propel2Excel Fellow",                 type: "program",     color: "#8B5CF6", tag: "Program"     },
+  { id: "internship",    date: "Soon",        title: "First Internship",                    type: "future",      color: null,      tag: "Next Chapter" },
+]
+
+// Open World — educational program posts
+// images: paths relative to /public (e.g. '/life/ey-week1.jpg')
+// Leave images: [] until you have photos — card renders without image gracefully
+export const openworld = [
+  {
+    id: "ey-expedition-start",
+    date: "Mar 2026",
+    program: "EY Expedition",
+    title: "Week 1 at EY Expedition",
+    body: "First week in the EY Expedition accelerator. Covered AI fundamentals, digital transformation frameworks, and what it actually means to consult at a Big 4 firm. The cohort is sharp — being in a room of people who are actually hungry is different. This is going to push me.",
+    images: [],
+    tags: ["EY", "consulting", "accelerator"],
+  },
+]
+
+// Touching Grass — outings, hobbies, real life moments
+// location: optional — where it happened
+export const touchinggrass = [
+  {
+    id: "nashville-first-look",
+    date: "Spring 2025",
+    location: "Nashville, TN",
+    title: "Learning the city",
+    body: "First few months figuring out Nashville. Walked downtown, found the good spots, started feeling at home. Lagos to Nashville is a big jump — but the city has its own energy once you stop comparing it to what you came from.",
+    images: [],
+    tags: ["nashville", "exploring", "new city"],
+  },
+]
+
+// Legacy bento tiles — kept for reference, not used by new page
+// (can be removed once new page is confirmed)
 export const lifepeek = [
   // ── HERO ──
   {
