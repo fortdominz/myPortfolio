@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { useTheme } from "../ThemeContext"
 
@@ -17,6 +17,62 @@ const MoonIcon = () => (
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </svg>
 )
+
+function LifePeekLocked() {
+  const [show, setShow] = useState(false)
+
+  return (
+    <div style={{ position: "relative", display: "inline-block" }}>
+      <button
+        onClick={() => setShow(s => !s)}
+        onMouseEnter={() => setShow(true)}
+        onMouseLeave={() => setShow(false)}
+        style={{
+          background: "none", border: "none", cursor: "not-allowed",
+          fontFamily: "Geist, sans-serif", fontSize: "0.875rem", fontWeight: 500,
+          color: "var(--muted)", padding: 0,
+          display: "flex", alignItems: "center", gap: 5,
+          transition: "color 0.15s",
+          opacity: 0.6,
+        }}
+      >
+        LifePeek
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </button>
+
+      {show && (
+        <div style={{
+          position: "absolute", top: "calc(100% + 10px)", left: "50%",
+          transform: "translateX(-50%)",
+          background: "var(--nav-bg)", border: "1px solid var(--border)",
+          borderRadius: 8, padding: "7px 12px",
+          whiteSpace: "nowrap", zIndex: 100,
+          boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
+          pointerEvents: "none",
+        }}>
+          <p style={{
+            fontFamily: "JetBrains Mono, monospace", fontSize: "0.7rem",
+            color: "var(--muted)", letterSpacing: "0.06em", margin: 0,
+          }}>
+            🚧 still under construction
+          </p>
+          {/* Arrow */}
+          <div style={{
+            position: "absolute", top: -5, left: "50%", transform: "translateX(-50%)",
+            width: 8, height: 8,
+            background: "var(--nav-bg)", border: "1px solid var(--border)",
+            borderRight: "none", borderBottom: "none",
+            rotate: "45deg",
+          }} />
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Nav() {
   const navRef = useRef(null)
@@ -58,22 +114,8 @@ export default function Nav() {
                 </a>
               </li>
             ))}
-            <li>
-              <Link
-                to="/lifepeek"
-                className="text-sm font-medium"
-                style={{
-                  color: "var(--accent)",
-                  fontFamily: "Geist, sans-serif",
-                  textDecoration: "none",
-                  fontWeight: 500,
-                  transition: "opacity 0.15s",
-                }}
-                onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
-                onMouseLeave={e => e.currentTarget.style.opacity = "1"}
-              >
-                LifePeek ↗
-              </Link>
+            <li style={{ position: "relative" }}>
+              <LifePeekLocked />
             </li>
           </ul>
 
