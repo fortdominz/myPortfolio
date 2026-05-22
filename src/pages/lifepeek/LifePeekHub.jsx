@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useTokens, useInView, PageShell, MONO, SERIF, SANS } from "./shared"
 import { lifepeek } from "../../data"
@@ -346,12 +346,12 @@ function Tile({ tile, tok, cols, i }) {
 
 function useGridCols() {
   const [cols, setCols] = useState(4)
-  useState(() => {
+  useEffect(() => {
     const update = () => setCols(window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 4)
     update()
     window.addEventListener("resize", update)
     return () => window.removeEventListener("resize", update)
-  })
+  }, [])
   return cols
 }
 
