@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { Link } from "react-router-dom"
 import { useTheme } from "../ThemeContext"
 
 const SunIcon = () => (
@@ -57,6 +58,23 @@ export default function Nav() {
                 </a>
               </li>
             ))}
+            <li>
+              <Link
+                to="/lifepeek"
+                className="text-sm font-medium"
+                style={{
+                  color: "var(--accent)",
+                  fontFamily: "Geist, sans-serif",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  transition: "opacity 0.15s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.opacity = "0.7"}
+                onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+              >
+                LifePeek ↗
+              </Link>
+            </li>
           </ul>
 
           <button

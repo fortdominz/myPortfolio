@@ -413,3 +413,181 @@ export const certifications = [
   { name: "CodePath In Residence (CIR)", issuer: "CodePath × Fisk University", file: "/cert-codepath-cir.pdf" },
   { name: "Remote Extern", issuer: "Extern × Emboldly", file: "/cert-extern-emboldly.pdf" },
 ]
+
+// ── LIFEPEEK — personal bento grid content ────────────────────────────────────
+// Add entries here. Push to GitHub. Vercel redeploys automatically.
+// colSpan: 1 = normal, 2 = wide (half grid), 4 = full width
+// types: 'hero' | 'stat' | 'story' | 'program' | 'hobby' | 'quote'
+
+export const lifepeek = [
+  // ── HERO ──
+  {
+    id: "journey",
+    type: "hero",
+    colSpan: 4,
+    title: "Lagos → Nashville",
+    subtitle: "The journey that made me.",
+    body: "Flew in January 2025 — alone, a semester late, no CS classes that term. Visa delays pushed my start back. Most people would wait. I locked in and built everything myself.",
+    tag: "Origin story",
+  },
+
+  // ── ROW 2 ──
+  {
+    id: "gpa",
+    type: "stat",
+    colSpan: 1,
+    value: "4.0",
+    label: "GPA",
+    sub: "Fisk University",
+    color: "#F59E0B",
+  },
+  {
+    id: "route",
+    type: "stat",
+    colSpan: 1,
+    value: "NG → US",
+    label: "Route",
+    sub: "Lagos to Nashville",
+    color: "#10B981",
+  },
+  {
+    id: "summer",
+    type: "story",
+    colSpan: 2,
+    title: "The Summer I Built Everything",
+    body: "No CS classes that first semester. So I made my own curriculum — Stanford Code in Place, CodePath WEB101, 15+ Python projects. ATM simulator. Snake. Pong. REST APIs. All summer. No cohort. Just me.",
+    tag: "Summer 2025",
+    color: "#2563EB",
+  },
+
+  // ── ROW 3 ──
+  {
+    id: "ey",
+    type: "program",
+    colSpan: 2,
+    org: "EY",
+    title: "Expedition EY",
+    body: "Competitive accelerator for high-potential CS students. Exploring AI, cybersecurity, and data analytics inside EY's digital transformation framework.",
+    period: "Mar 2026 – Present",
+    badge: "Active",
+    color: "#06B6D4",
+  },
+  {
+    id: "codepath-ai",
+    type: "program",
+    colSpan: 1,
+    org: "CodePath",
+    title: "AI Engineering Fellow",
+    body: "Building RAG systems, LangChain pipelines, Vector DBs, and production AI apps.",
+    period: "Feb 2026 – Present",
+    badge: "Active",
+    color: "#8B5CF6",
+  },
+  {
+    id: "oracle",
+    type: "program",
+    colSpan: 1,
+    org: "Oracle",
+    title: "REACH Participant",
+    body: "Professional development initiative for underrepresented students in technology.",
+    period: "May 2025 – Present",
+    badge: "Active",
+    color: "#F59E0B",
+  },
+
+  // ── ROW 4 ──
+  {
+    id: "quote",
+    type: "quote",
+    colSpan: 2,
+    text: "\"My pace doesn't have to match anyone else's for me to make progress. I create my own opportunities by being consistent, curious, and proactive.\"",
+    author: "— Dominion Eze",
+    color: "#10B981",
+  },
+  {
+    id: "hobby-music",
+    type: "hobby",
+    colSpan: 1,
+    emoji: "🎵",
+    title: "Music",
+    body: "Always playing something. Mood-driven playlist guy. The right song at the right time hits different.",
+    color: "#8B5CF6",
+  },
+  {
+    id: "pwc",
+    type: "program",
+    colSpan: 1,
+    org: "PwC",
+    title: "Remote Extern",
+    body: "Consulted for a social impact startup. Built a Partnership Playbook. Presented to exec leadership.",
+    period: "Jul – Aug 2025",
+    badge: "Completed",
+    color: "#EF4444",
+  },
+
+  // ── ROW 5 ──
+  {
+    id: "math-teacher",
+    type: "story",
+    colSpan: 2,
+    title: "5 Years Teaching Math",
+    body: "Before college, I spent five years as a math teaching assistant in Lagos. Led a team of 3 to win a school-wide competition — contributing 70%+ of the score. Breaking hard things down until they make sense is practiced, not new.",
+    tag: "2016 – 2021 · Lagos, Nigeria",
+    color: "#F59E0B",
+  },
+  {
+    id: "codepath-tip",
+    type: "program",
+    colSpan: 1,
+    org: "CodePath",
+    title: "Technical Interview Prep",
+    body: "Advanced DSA — Dynamic Programming, Backtracking, Graphs. UMPIRE framework. Real pressure.",
+    period: "Feb 2026 – Present",
+    badge: "Active",
+    color: "#06B6D4",
+  },
+  {
+    id: "propel",
+    type: "program",
+    colSpan: 1,
+    org: "Propel2Excel",
+    title: "Fellow",
+    body: "Accelerating careers of high-potential students through professional development and leadership.",
+    period: "2026 – Present",
+    badge: "Active",
+    color: "#8B5CF6",
+  },
+
+  // ── ROW 6 ──
+  {
+    id: "stanford",
+    type: "program",
+    colSpan: 2,
+    org: "Stanford University",
+    title: "Code in Place",
+    body: "Stanford's introductory Python programming course with live lectures and global community. Where structured CS thinking began.",
+    period: "Apr – Jun 2025",
+    badge: "Completed",
+    color: "#EF4444",
+  },
+  {
+    id: "hobby-build",
+    type: "hobby",
+    colSpan: 1,
+    emoji: "🔨",
+    title: "Building",
+    body: "If I can think it, I'll try to build it. Ideas first, sleep second. Every project starts with a real problem.",
+    color: "#2563EB",
+  },
+  {
+    id: "web101",
+    type: "program",
+    colSpan: 1,
+    org: "CodePath",
+    title: "WEB101",
+    body: "Intro to Web Development. HTML, CSS, JavaScript. Where the frontend journey officially started.",
+    period: "Apr – Aug 2025",
+    badge: "Completed",
+    color: "#10B981",
+  },
+]

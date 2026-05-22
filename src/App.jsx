@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ThemeProvider } from "./ThemeContext"
 import Nav from "./components/Nav"
 import Hero from "./components/Hero"
@@ -12,8 +13,9 @@ import Footer from "./components/Footer"
 import LoadingScreen from "./components/LoadingScreen"
 import StatusBar from "./components/StatusBar"
 import FadeIn from "./components/FadeIn"
+import LifePeek from "./pages/LifePeek"
 
-export default function App() {
+function Portfolio() {
   const [booted, setBooted] = useState(false)
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export default function App() {
   }, [])
 
   return (
-    <ThemeProvider>
+    <>
       <LoadingScreen onDone={() => setBooted(true)} />
       <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", paddingBottom: "26px" }}>
         <Nav />
@@ -39,6 +41,19 @@ export default function App() {
         </div>
         <StatusBar />
       </div>
-    </ThemeProvider>
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/"         element={<Portfolio />} />
+          <Route path="/lifepeek" element={<LifePeek />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
