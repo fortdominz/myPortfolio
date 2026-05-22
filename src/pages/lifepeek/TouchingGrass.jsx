@@ -1,4 +1,4 @@
-import { useTokens, PageShell, PageHeader, PostCard, EmptyState } from "./shared"
+import { useTokens, PageShell, PageHeader, PostCard, EmptyState, MONO } from "./shared"
 import { touchinggrass } from "../../data"
 
 const ACCENT = "#10B981"
