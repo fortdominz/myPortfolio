@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { profile } from "../data"
 
 const lines = [
@@ -12,6 +12,23 @@ export default function Hero() {
   const [lineIdx, setLineIdx] = useState(0)
   const [displayed, setDisplayed] = useState("")
   const [phase, setPhase] = useState("typing")
+  const headshotRef = useRef(null)
+  const dotGridRef  = useRef(null)
+
+  function handleMouseMove(e) {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect()
+    const x = (e.clientX - left - width  / 2) / (width  / 2)
+    const y = (e.clientY - top  - height / 2) / (height / 2)
+    if (headshotRef.current)
+      headshotRef.current.style.transform = `translate(${x * 8}px, ${y * 6}px)`
+    if (dotGridRef.current)
+      dotGridRef.current.style.transform = `translate(${-x * 4}px, ${-y * 3}px) scale(1.04)`
+  }
+
+  function handleMouseLeave() {
+    if (headshotRef.current) headshotRef.current.style.transform = ""
+    if (dotGridRef.current)  dotGridRef.current.style.transform  = ""
+  }
 
   useEffect(() => {
     const target = lines[lineIdx]
@@ -39,18 +56,22 @@ export default function Hero() {
 
   return (
     <section id="top"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       style={{ paddingTop: "5rem", paddingBottom: "6rem", paddingLeft: "1.5rem", paddingRight: "1.5rem", position: "relative" }}>
 
-      {/* Dot grid background */}
-      <div style={{
+      {/* Dot grid background — shifts slightly opposite the cursor */}
+      <div ref={dotGridRef} style={{
         position: "absolute",
-        inset: 0,
+        inset: "-8px",
         backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
         backgroundSize: "28px 28px",
         opacity: 0.6,
         pointerEvents: "none",
         maskImage: "radial-gradient(ellipse 80% 100% at 60% 50%, black 30%, transparent 100%)",
         WebkitMaskImage: "radial-gradient(ellipse 80% 100% at 60% 50%, black 30%, transparent 100%)",
+        transition: "transform 0.18s ease-out",
+        willChange: "transform",
       }} />
 
       {/* Two-column layout */}
@@ -139,15 +160,20 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — headshot */}
-        <div style={{ flexShrink: 0, position: "relative" }}>
+        {/* Right — headshot — follows cursor */}
+        <div ref={headshotRef} style={{
+          flexShrink: 0,
+          position: "relative",
+          transition: "transform 0.18s ease-out",
+          willChange: "transform",
+        }}>
           <div style={{
             width: "220px",
             height: "220px",
             borderRadius: "50%",
             padding: "4px",
             background: "linear-gradient(135deg, var(--accent), transparent 60%)",
-            boxShadow: "0 0 40px rgba(126,184,212,0.18)",
+            boxShadow: "0 0 40px rgba(37,99,235,0.18)",
           }}>
             <img
               src="/headshot.jpg"

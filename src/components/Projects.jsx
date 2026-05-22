@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { projects } from "../data"
 import TerminalDemo from "./TerminalDemo"
+import FadeIn from "./FadeIn"
 
 const statusConfig = {
-  complete: { label: "Complete", color: "#3A9A60", bg: "rgba(126,212,153,0.12)" },
-  planned:  { label: "Planned",  color: "#B87820", bg: "rgba(255,184,100,0.12)" },
-  wip:      { label: "In Progress", color: "#5A9AB8", bg: "rgba(126,184,212,0.12)" },
+  complete: { label: "Complete",    color: "#3A9A60", bg: "rgba(126,212,153,0.12)"  },
+  planned:  { label: "Planned",     color: "#B87820", bg: "rgba(255,184,100,0.12)"  },
+  wip:      { label: "In Progress", color: "#2563EB", bg: "rgba(37,99,235,0.10)"    },
 }
 
 const LockIcon = () => (
@@ -34,14 +35,14 @@ function ProjectCard({ project }) {
       onMouseEnter={e => {
         if (!isLocked) {
           e.currentTarget.style.borderColor = "var(--accent)"
-          e.currentTarget.style.boxShadow = "0 8px 32px rgba(126,184,212,0.15)"
-          e.currentTarget.style.transform = "translateY(-4px)"
+          e.currentTarget.style.boxShadow = "0 8px 32px rgba(37,99,235,0.15)"
+          e.currentTarget.style.transform = "translateY(-5px) scale(1.01)"
         }
       }}
       onMouseLeave={e => {
         e.currentTarget.style.borderColor = "var(--border)"
         e.currentTarget.style.boxShadow = "none"
-        e.currentTarget.style.transform = "translateY(0)"
+        e.currentTarget.style.transform = "translateY(0) scale(1)"
       }}
     >
       {/* Window title bar */}
@@ -222,7 +223,11 @@ export default function Projects() {
       </div>
 
       <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
-        {projects.map(p => <ProjectCard key={p.id} project={p} />)}
+        {projects.map((p, i) => (
+          <FadeIn key={p.id} delay={i * 80} direction="up">
+            <ProjectCard project={p} />
+          </FadeIn>
+        ))}
       </div>
     </section>
   )
