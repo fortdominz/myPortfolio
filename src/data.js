@@ -213,6 +213,18 @@ export const projects = [
     terminal: null,
   },
   {
+    id: "fendi",
+    name: "Fendi — My Personal AI Assistant",
+    status: "planned",
+    tagline: "A JARVIS-style voice AI assistant built to run my world.",
+    description:
+      "A personal AI assistant that listens, thinks, and acts — voice-activated, context-aware, and built entirely around how I work. Not a chatbot. A system.",
+    stack: ["Python", "OpenAI API", "Speech Recognition", "CLI"],
+    github: null,
+    demo: null,
+    terminal: null,
+  },
+  {
     id: "ezresume",
     name: "EzResume",
     status: "planned",
