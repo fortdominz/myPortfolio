@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import { projects } from "../data"
 import TerminalDemo from "./TerminalDemo"
 import FadeIn from "./FadeIn"
@@ -28,18 +29,20 @@ const ChevronIcon = ({ open }) => (
 
 function ProjectCard({ project }) {
   const [expanded, setExpanded] = useState(false)
+  const navigate = useNavigate()
   const s = statusConfig[project.status]
   const isLocked = project.status === "planned"
 
   return (
     <div
+      onClick={() => !isLocked && navigate(`/projects/${project.id}`)}
       style={{
         border: "1px solid var(--border)",
         borderRadius: "10px",
         overflow: "hidden",
         backgroundColor: isLocked ? "var(--locked-bg)" : "var(--bg)",
         transition: "box-shadow 0.22s, border-color 0.22s, transform 0.22s",
-        cursor: "default",
+        cursor: isLocked ? "default" : "pointer",
         opacity: isLocked ? 0.85 : 1,
       }}
       onMouseEnter={e => {
@@ -142,8 +145,18 @@ function ProjectCard({ project }) {
 
             {/* Links */}
             <div className="flex gap-3 flex-wrap">
+              <Link
+                to={`/projects/${project.id}`}
+                onClick={e => e.stopPropagation()}
+                style={{ fontSize: "0.82rem", color: "var(--accent)", textDecoration: "none", fontWeight: 500 }}
+                onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+                onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+              >
+                View details →
+              </Link>
               {project.github && (
                 <a href={project.github} target="_blank" rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
                   style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
                   onMouseEnter={e => e.target.style.textDecoration = "underline"}
                   onMouseLeave={e => e.target.style.textDecoration = "none"}
@@ -153,6 +166,7 @@ function ProjectCard({ project }) {
               )}
               {project.demo && (
                 <a href={project.demo} target="_blank" rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
                   style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
                   onMouseEnter={e => e.target.style.textDecoration = "underline"}
                   onMouseLeave={e => e.target.style.textDecoration = "none"}
@@ -162,6 +176,7 @@ function ProjectCard({ project }) {
               )}
               {project.live && (
                 <a href={project.live} target="_blank" rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
                   style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
                   onMouseEnter={e => e.target.style.textDecoration = "underline"}
                   onMouseLeave={e => e.target.style.textDecoration = "none"}
@@ -171,6 +186,7 @@ function ProjectCard({ project }) {
               )}
               {project.link && (
                 <a href={project.link} target="_blank" rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
                   style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
                   onMouseEnter={e => e.target.style.textDecoration = "underline"}
                   onMouseLeave={e => e.target.style.textDecoration = "none"}
@@ -180,6 +196,7 @@ function ProjectCard({ project }) {
               )}
               {project.app && (
                 <a href={project.app} target="_blank" rel="noreferrer"
+                  onClick={e => e.stopPropagation()}
                   style={{ fontSize: "0.82rem", color: "var(--accent-dark)", textDecoration: "none", fontWeight: 500 }}
                   onMouseEnter={e => e.target.style.textDecoration = "underline"}
                   onMouseLeave={e => e.target.style.textDecoration = "none"}
@@ -189,7 +206,7 @@ function ProjectCard({ project }) {
               )}
               {project.terminal && (
                 <button
-                  onClick={() => setExpanded(x => !x)}
+                  onClick={e => { e.stopPropagation(); setExpanded(x => !x) }}
                   style={{
                     fontSize: "0.82rem",
                     color: "var(--terminal-green)",

@@ -45,8 +45,23 @@ export const projects = [
   {
     id: "gatekeep",
     name: "GateKeep: Facial Recognition Security System",
+    shortName: "GateKeep",
     status: "complete",
     tagline: "Real-time computer vision security. Know who's at the door before they knock.",
+    heroColor: "#E8EEF7",
+    overview: "GateKeep is a real-time facial recognition security dashboard you can run on any camera. InsightFace detects faces in the live feed and cosine similarity checks each one against an enrolled watchlist. Every scan completes in under a second. Authorized people get logged as granted, unknown faces get flagged, and anyone on the banned list triggers an alert that writes to a timestamped log file. The React frontend shows a live camera feed, a SOC-style access log, and an enrollment panel for managing the watchlist.",
+    highlights: [
+      { value: "< 1s", label: "Face match latency" },
+      { value: "MJPEG", label: "Live camera stream" },
+    ],
+    howItWorks: [
+      { title: "Camera streams live", desc: "An MJPEG stream feeds frames continuously into the detection pipeline in real time." },
+      { title: "InsightFace detects faces", desc: "Each frame is scanned for faces with bounding boxes drawn and confidence scores attached." },
+      { title: "Face embeddings are generated", desc: "Detected faces are converted into numerical vectors that encode facial geometry." },
+      { title: "Cosine similarity matches the watchlist", desc: "Each embedding is compared against every enrolled face in SQLite. The closest match above the threshold is the identity." },
+      { title: "Access decision is made", desc: "Authorized faces are granted. Unknown faces are flagged. Banned faces trigger a live alert on the dashboard." },
+      { title: "Every scan is logged", desc: "Results are written to a timestamped file with identity, confidence score, and access decision." },
+    ],
     description:
       "Built a real-time computer vision security dashboard with an MJPEG camera stream, InsightFace-powered face detection, and cosine similarity matching against an enrolled watchlist. React SOC-style interface includes live feed, alert logging, enrollment, and banned-persons management.",
     stack: ["Python", "FastAPI", "React", "Vite", "InsightFace", "SQLite"],
@@ -72,8 +87,23 @@ export const projects = [
   {
     id: "job-tracker",
     name: "Job Application Tracker v1.0",
+    shortName: "Job Tracker",
     status: "complete",
     tagline: "A CLI tool to track every internship application in one place.",
+    heroColor: "#EEF2F7",
+    overview: "A CLI tool built to bring every job application into one organized system. It tracks 13 fields per application through a 9-stage pipeline, lets you sort and filter any way you want, surfaces deadline alerts automatically, and exports everything to CSV. The data layer is isolated from the rest of the app so the whole thing can migrate to a proper database without touching the business logic.",
+    highlights: [
+      { value: "13", label: "Fields tracked per application" },
+      { value: "9-stage", label: "Application pipeline" },
+    ],
+    howItWorks: [
+      { title: "Add an application", desc: "Log company, role, status, deadline, salary range, notes, and 7 more fields in one command." },
+      { title: "Move it through the pipeline", desc: "9 stages from applied to offer. Update status as things progress." },
+      { title: "Sort and search", desc: "5 sort modes and keyword search across any field." },
+      { title: "Get deadline alerts", desc: "Upcoming deadlines surface automatically when you launch the tracker." },
+      { title: "View the analytics dashboard", desc: "See response rates, stage distribution, and application velocity in the terminal." },
+      { title: "Export to CSV", desc: "One command exports everything for spreadsheet analysis or sharing." },
+    ],
     description:
       "6-phase CLI app across 4 modules — tracking 13 fields through a 9-stage pipeline with full CRUD, 5-sort modes, keyword search, deadline alerts, CSV export, and a terminal analytics dashboard. Architected with an isolated data layer for planned MongoDB migration.",
     stack: ["Python", "OOP", "JSON", "CLI"],
@@ -105,8 +135,23 @@ export const projects = [
   {
     id: "musictastematch",
     name: "MusicTasteMatch v3.0",
+    shortName: "MusicTasteMatch",
     status: "complete",
     tagline: "Describe your mood in plain English. Get songs that actually match.",
+    heroColor: "#F2ECFF",
+    overview: "You describe how you feel in plain English and it finds the music that actually matches. Not a genre picker or an artist search. Gemini AI reads your description and converts it into structured Spotify search terms, then the app pulls real songs from the live Spotify catalog and scores each one against your original mood profile. A bias detection pass makes sure the results are not all the same artist or sound, and a final AI critique reviews the top results for overall alignment before anything gets returned to you.",
+    highlights: [
+      { value: "6-stage", label: "AI pipeline from prompt to playlist" },
+      { value: "Live", label: "Real Spotify catalog, not pre-scraped data" },
+    ],
+    howItWorks: [
+      { title: "You write your vibe", desc: "Plain English. \"Driving alone at night\" or \"studying but need energy, no lyrics.\"" },
+      { title: "Gemini AI parses it", desc: "Converts your natural language into structured Spotify-searchable terms: tempo range, energy level, mood axis, lyric preference." },
+      { title: "Spotify searches live", desc: "The structured profile drives a real-time Spotify API search. No cached dataset, no preselected pool." },
+      { title: "Every song is scored", desc: "Each result is scored against your original mood profile. Results are ranked by match quality, not popularity." },
+      { title: "Bias detection runs", desc: "Checks for artist overrepresentation and genre clustering so the final list is actually varied." },
+      { title: "AI critique filters the rest", desc: "A final Gemini pass reviews the top results for vibe alignment and generates a brief critique report before returning them." },
+    ],
     description:
       "AI-powered music recommendation system built with a 6-stage pipeline: Llama 3.2 converts natural language into structured preference profiles, searches the live Spotify catalog, scores songs by genre/mood/energy match, runs a bias detector with confidence scoring, gets an AI critique pass, and logs every session for auditability. v2.0 — evolved from a static CSV to full Spotify API + local LLM inference.",
     stack: ["Python", "Gemini GenAI API", "Spotify API", "FastAPI", "React", "Pytest"],
@@ -137,8 +182,22 @@ export const projects = [
   {
     id: "daykeep",
     name: "DayKeep v2.0",
+    shortName: "DayKeep",
     status: "complete",
     tagline: "Daily accountability, habits, and journaling. All in one place.",
+    heroColor: "#EDF5EA",
+    overview: "DayKeep is a daily accountability app that ties your goals, tasks, and journal together in one place. You set goals, break them into tasks, and log your day. Streak tracking shows how consistent you have been over time, stale task detection flags anything you have been avoiding, and the journal entries give you a running record of how you were actually thinking at the time. Everything is stored and served by a FastAPI backend with a React frontend that pulls your full day into one dashboard.",
+    highlights: [
+      { value: "3-in-1", label: "Goals, tasks, and journal unified" },
+      { value: "Live", label: "Deployed and in daily use" },
+    ],
+    howItWorks: [
+      { title: "Set your goals", desc: "Create goals and break them into concrete tasks with deadlines." },
+      { title: "Track daily tasks", desc: "Check off tasks as you complete them. Stale task detection flags items that have been sitting too long." },
+      { title: "Log your mood and journal", desc: "Write a short entry for the day. Mood logging gives you a longitudinal view of how you were feeling over time." },
+      { title: "Streaks keep you consistent", desc: "Consecutive active days build your streak. Missing a day resets it — simple accountability." },
+      { title: "Dashboard gives you the big picture", desc: "A real-time summary of active goals, completion rate, and recent journal entries in one view." },
+    ],
     description:
       "A full-stack daily accountability app with Goals, Tasks, and Journal. Built with FastAPI + React. Features streak tracking, stale task detection, mood logging, postpone history, and a real-time dashboard.",
     stack: ["FastAPI", "React", "Vite", "Python", "JSON"],
@@ -166,8 +225,21 @@ export const projects = [
   {
     id: "study-tracker",
     name: "Study Session Tracker v1.0",
+    shortName: "Study Tracker",
     status: "complete",
     tagline: "Track study sessions, subjects, and consistency over time.",
+    heroColor: "#F0F4EE",
+    overview: "A CLI tool for tracking study sessions at the subject level. Log what you studied and for how long, and the tracker builds a clear picture of where your time actually goes. Subject-level breakdowns and streak data feed into a cross-app analytics layer alongside data from the Job Tracker.",
+    highlights: [
+      { value: "Subject", label: "Level tracking, not just total time" },
+      { value: "Feeds", label: "Cross-app analytics layer" },
+    ],
+    howItWorks: [
+      { title: "Start a session", desc: "Name the subject and start the timer." },
+      { title: "Log the session", desc: "When done, the session is recorded with subject, duration, and date." },
+      { title: "View subject breakdowns", desc: "See hours per subject this week, this month, and all time." },
+      { title: "Track your streak", desc: "Daily study streak and weekly summary keep you accountable." },
+    ],
     description:
       "CLI tool that tracks study sessions at the subject level, feeding study data and subject-level insights into the cross-app analytics layer at dominioneze.com.",
     stack: ["Python", "OOP", "JSON", "CLI"],
@@ -190,8 +262,15 @@ export const projects = [
   {
     id: "game-night",
     name: "Neighborhood Game Night",
+    shortName: "Game Night",
     status: "complete",
     tagline: "A responsive multi-page site for local gaming events.",
+    heroColor: "#FEF0EC",
+    overview: "A responsive multi-page website built for a local neighborhood gaming event. Mobile-first Bootstrap layout with JavaScript DOM manipulation for RSVP handling and dynamic game listings. The first real frontend project from CodePath WEB101.",
+    highlights: [
+      { value: "Multi-page", label: "Responsive web app" },
+      { value: "Mobile-first", label: "Bootstrap layout" },
+    ],
     description:
       "Designed and built a responsive multi-page web application for local gaming events. Mobile-first Bootstrap layout with JavaScript dynamic DOM manipulation and RSVP event handling.",
     stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
@@ -203,8 +282,15 @@ export const projects = [
   {
     id: "python-cli-suite",
     name: "Python CLI Suite",
+    shortName: "Python CLI Suite",
     status: "complete",
     tagline: "15+ Python projects built while learning: from games to API integrations.",
+    heroColor: "#F4F0EA",
+    overview: "A collection of 15 Python projects built during the summer of 2025 while teaching myself the language from scratch. The set spans CLI tools, GUI apps with Tkinter and Turtle, and live REST API integrations with OpenWeatherMap, Alpha Vantage, NewsAPI, and Twilio. Built to practice every core Python pattern before moving on to FastAPI and full-stack work.",
+    highlights: [
+      { value: "15+", label: "Projects built in one summer" },
+      { value: "3", label: "Paradigms: CLI, GUI, REST APIs" },
+    ],
     description:
       "A collection of 15+ Python projects spanning CLI, GUI, and API paradigms: ATM simulator, Coffee Machine (OOP), Snake & Turtle Racing, Quiz Game, Blackjack, and integrations with OpenWeatherMap, Alpha Vantage, NewsAPI, and Twilio. Built during self-study summer 2025.",
     stack: ["Python", "OOP", "Tkinter", "Turtle Graphics", "REST APIs", "Twilio"],
@@ -215,6 +301,7 @@ export const projects = [
   {
     id: "discoursiq",
     name: "DiscourseIQ",
+    shortName: "DiscourseIQ",
     status: "planned",
     tagline: "Can you tell the difference between analysis and a hot take? It can.",
     description:
@@ -242,6 +329,7 @@ export const projects = [
   {
     id: "agent-outfitch",
     name: "Agent Outfitch",
+    shortName: "Agent Outfitch",
     status: "planned",
     tagline: "Describe the fit. The agent finds it, styles it, and captions it.",
     description:
@@ -272,6 +360,7 @@ export const projects = [
   {
     id: "northstar",
     name: "Unofficial NorthStar",
+    shortName: "NorthStar",
     status: "planned",
     tagline: "The housing guide no one built for Fisk students. Until now.",
     description:
@@ -298,6 +387,7 @@ export const projects = [
   {
     id: "fendi",
     name: "Fendi: My Personal AI Assistant",
+    shortName: "Fendi",
     status: "planned",
     tagline: "A JARVIS-style voice AI assistant built to run my world.",
     description:
@@ -310,6 +400,7 @@ export const projects = [
   {
     id: "ezresume",
     name: "EzResume",
+    shortName: "EzResume",
     status: "planned",
     tagline: "Your complete experience on record. Your resume, on demand.",
     description:
@@ -323,6 +414,7 @@ export const projects = [
   {
     id: "ezguide",
     name: "EzGuide",
+    shortName: "EzGuide",
     status: "planned",
     tagline: "The guide nobody gave you. Built by someone who needed it.",
     description:
@@ -335,6 +427,7 @@ export const projects = [
   {
     id: "ezfill",
     name: "EzFill",
+    shortName: "EzFill",
     status: "planned",
     tagline: "Apply once, fill forever.",
     description:

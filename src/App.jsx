@@ -17,17 +17,16 @@ import LifePeekHub    from "./pages/lifepeek/LifePeekHub"
 import LifeJourney   from "./pages/lifepeek/LifeJourney"
 import OpenWorld     from "./pages/lifepeek/OpenWorld"
 import TouchingGrass from "./pages/lifepeek/TouchingGrass"
+import ProjectDetail from "./pages/projects/ProjectDetail"
 
-function Portfolio() {
-  const [booted, setBooted] = useState(false)
-
+function Portfolio({ booted, onBoot }) {
   useEffect(() => {
     document.title = "Dominion Eze — AI Engineer & System Architect"
   }, [])
 
   return (
     <>
-      <LoadingScreen onDone={() => setBooted(true)} />
+      {!booted && <LoadingScreen onDone={onBoot} />}
       <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", paddingBottom: "26px" }}>
         <Nav />
         <main style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -49,11 +48,14 @@ function Portfolio() {
 }
 
 export default function App() {
+  const [booted, setBooted] = useState(false)
+
   return (
     <BrowserRouter>
       <ThemeProvider>
         <Routes>
-          <Route path="/"         element={<Portfolio />} />
+          <Route path="/"         element={<Portfolio booted={booted} onBoot={() => setBooted(true)} />} />
+          <Route path="/projects/:id"             element={<ProjectDetail />}  />
           <Route path="/lifepeek"                element={<LifePeekHub />}    />
           <Route path="/lifepeek/life-journey"   element={<LifeJourney />}    />
           <Route path="/lifepeek/open-world"     element={<OpenWorld />}      />
