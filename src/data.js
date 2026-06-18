@@ -72,7 +72,7 @@ export const projects = [
   {
     id: "discoursiq",
     name: "DiscourseIQ",
-    status: "complete",
+    status: "planned",
     tagline: "Can you tell the difference between analysis and a hot take? It can.",
     description:
       "A fine-tuned text classifier that evaluates discourse quality in football/soccer online communities. Trained on 200+ manually annotated Reddit posts across three labels — analysis (evidence-backed arguments), hot_take (opinion without support), and reaction (emotion-anchored to a specific event). Built for CodePath AI201.",
@@ -99,7 +99,7 @@ export const projects = [
   {
     id: "agent-outfitch",
     name: "Agent Outfitch",
-    status: "complete",
+    status: "planned",
     tagline: "Describe the fit. The agent finds it, styles it, and captions it.",
     description:
       "A multi-tool AI agent for secondhand fashion. Describe what you want in plain language — Outfitch parses the query via LLM, scores 40+ mock thrift listings by keyword relevance, picks the best match, generates outfit combinations from your wardrobe, and writes a shareable Instagram/TikTok caption for the look. Three chained tools in a full agent planning loop. Built for CodePath AI201.",
@@ -129,7 +129,7 @@ export const projects = [
   {
     id: "northstar",
     name: "Unofficial NorthStar",
-    status: "complete",
+    status: "planned",
     tagline: "The housing guide no one built for Fisk students. Until now.",
     description:
       "A RAG-powered AI assistant for off-campus housing near Fisk University. The knowledge students actually need — which buildings have issues, what a realistic budget looks like, which streets are safe — exists only in scattered Reddit threads and review sites. NorthStar aggregates 10 sources, chunks them at 500 characters, and makes it searchable in plain language. Built for CodePath AI201.",
