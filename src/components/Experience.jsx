@@ -68,7 +68,7 @@ export default function Experience() {
                     gap: "10px",
                     alignItems: "flex-start",
                   }}>
-                    <span style={{ color: "var(--accent)", flexShrink: 0, marginTop: "2px" }}>—</span>
+                    <span style={{ width: "5px", height: "5px", borderRadius: "50%", backgroundColor: "var(--accent)", flexShrink: 0, marginTop: "8px" }} />
                     {b}
                   </li>
                 ))}

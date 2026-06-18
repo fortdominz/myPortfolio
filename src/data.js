@@ -1,13 +1,13 @@
 export const profile = {
   name: "Dominion Eze",
   handle: "fortdominz",
-  tagline: "I build tools I actually need — then ship them for everyone who needs them too.",
+  tagline: "I build tools I actually need. Then I ship them for everyone who needs them too.",
   subline: "CS @ Fisk University · 4.0 GPA · Building in public",
-  bio: `I came to Fisk as a spring 2025 student. Visa issues pushed my start back, and there were no CS classes offered that semester — I already felt behind before I'd even started. That summer, I locked in.
+  bio: `I came to Fisk as a spring 2025 student. Visa issues pushed my start back, and there were no CS classes offered that semester. I already felt behind before I'd even started. That summer, I locked in.
 
-I taught myself Python, completed Stanford's Code in Place, and built projects just to prove I could. Before college, I spent five years as a math teaching assistant in Nigeria — breaking hard things down until they made sense is something I've practiced for a long time.
+I taught myself Python, completed Stanford's Code in Place, and built projects just to prove I could. Before college, I spent five years as a math teaching assistant in Nigeria. Breaking hard things down until they make sense is something I've practiced for a long time.
 
-My pace doesn't have to match anyone else's. I create my own opportunities by being consistent, curious, and proactive. Every tool I build starts as something I personally need — and I keep building until others can use it too.`,
+My pace doesn't have to match anyone else's. I create my own opportunities by being consistent, curious, and proactive. Every tool I build starts as something I personally need. I keep building until others can use it too.`,
   email: "fortdominz10@gmail.com",
   phone: "615-587-0596",
   github: "https://github.com/fortdominz",
@@ -44,7 +44,7 @@ export const skills = [
 export const projects = [
   {
     id: "gatekeep",
-    name: "GateKeep — Facial Recognition Security System",
+    name: "GateKeep: Facial Recognition Security System",
     status: "complete",
     tagline: "Real-time computer vision security. Know who's at the door before they knock.",
     description:
@@ -138,7 +138,7 @@ export const projects = [
     id: "daykeep",
     name: "DayKeep v2.0",
     status: "complete",
-    tagline: "Daily accountability, habits, and journaling — all in one place.",
+    tagline: "Daily accountability, habits, and journaling. All in one place.",
     description:
       "A full-stack daily accountability app with Goals, Tasks, and Journal. Built with FastAPI + React. Features streak tracking, stale task detection, mood logging, postpone history, and a real-time dashboard.",
     stack: ["FastAPI", "React", "Vite", "Python", "JSON"],
@@ -204,7 +204,7 @@ export const projects = [
     id: "python-cli-suite",
     name: "Python CLI Suite",
     status: "complete",
-    tagline: "15+ Python projects built while learning — from games to API integrations.",
+    tagline: "15+ Python projects built while learning: from games to API integrations.",
     description:
       "A collection of 15+ Python projects spanning CLI, GUI, and API paradigms: ATM simulator, Coffee Machine (OOP), Snake & Turtle Racing, Quiz Game, Blackjack, and integrations with OpenWeatherMap, Alpha Vantage, NewsAPI, and Twilio. Built during self-study summer 2025.",
     stack: ["Python", "OOP", "Tkinter", "Turtle Graphics", "REST APIs", "Twilio"],
@@ -297,7 +297,7 @@ export const projects = [
   },
   {
     id: "fendi",
-    name: "Fendi — My Personal AI Assistant",
+    name: "Fendi: My Personal AI Assistant",
     status: "planned",
     tagline: "A JARVIS-style voice AI assistant built to run my world.",
     description:
@@ -313,7 +313,7 @@ export const projects = [
     status: "planned",
     tagline: "Your complete experience on record. Your resume, on demand.",
     description:
-      "Resume management platform where your full experience lives permanently in journals, and resumes are curated views — toggled, arranged, and exported on demand. Overleaf-style split screen editor.",
+      "Resume management platform where your full experience lives permanently in journals, and resumes are curated views: toggled, arranged, and exported on demand. Overleaf-style split screen editor.",
     stack: ["React", "FastAPI", "MongoDB", "React-PDF", "Tiptap", "dnd-kit"],
     github: null,
     demo: null,
@@ -324,7 +324,7 @@ export const projects = [
     id: "ezguide",
     name: "EzGuide",
     status: "planned",
-    tagline: "The guide nobody gave you — built by someone who needed it.",
+    tagline: "The guide nobody gave you. Built by someone who needed it.",
     description:
       "A full stack platform built specifically for international students. Status & immigration info, time management tools, community, resources, and belonging. Built by someone who lived it.",
     stack: ["React", "Tailwind", "FastAPI", "MongoDB"],
@@ -450,7 +450,7 @@ export const experience = [
     ],
   },
   {
-    role: "WEB101 — Intro to Web Development",
+    role: "WEB101: Intro to Web Development",
     org: "CodePath",
     period: "Apr. – Aug. 2025",
     location: "Remote",
@@ -468,7 +468,7 @@ export const experience = [
     tags: ["Python", "Programming"],
     bullets: [
       "Participated in Stanford's introductory Python programming course with live lectures and guided exercises.",
-      "Strengthened foundational programming logic — variables, conditionals, loops, and functions.",
+      "Strengthened foundational programming logic: variables, conditionals, loops, and functions.",
     ],
   },
   {
@@ -493,7 +493,7 @@ export const education = [
   {
     school: "Fisk University",
     location: "Nashville, TN",
-    degree: "Bachelor of Science — Computer Science",
+    degree: "Bachelor of Science in Computer Science",
     period: "Jan. 2025 – Dec. 2028",
     gpa: "4.0",
     highlights: [
@@ -505,7 +505,7 @@ export const education = [
   {
     school: "Oshboug Modern Secondary School",
     location: "Lagos, Nigeria",
-    degree: "High School Diploma — Science",
+    degree: "High School Diploma, Science Track",
     period: "Jan. 2016 – Sep. 2021",
     gpa: null,
     highlights: [],
