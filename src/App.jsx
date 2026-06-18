@@ -18,6 +18,7 @@ import LifeJourney   from "./pages/lifepeek/LifeJourney"
 import OpenWorld     from "./pages/lifepeek/OpenWorld"
 import TouchingGrass from "./pages/lifepeek/TouchingGrass"
 import ProjectDetail from "./pages/projects/ProjectDetail"
+import ScrollToTop from "./components/ScrollToTop"
 
 function Portfolio({ booted, onBoot }) {
   useEffect(() => {
@@ -53,6 +54,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider>
+        <ScrollToTop />
         <Routes>
           <Route path="/"         element={<Portfolio booted={booted} onBoot={() => setBooted(true)} />} />
           <Route path="/projects/:id"             element={<ProjectDetail />}  />
