@@ -144,9 +144,41 @@ export default function Contact() {
           Open to internship opportunities, collaborations, and conversations. If something I'm building is interesting to you, reach out.
         </p>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+        <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
           {platforms.map(p => (
-            <PlatformCard key={p.id} platform={p} />
+            <a
+              key={p.id}
+              href={p.href}
+              target={p.external ? "_blank" : undefined}
+              rel={p.external ? "noreferrer" : undefined}
+              aria-label={p.label}
+              title={p.label}
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "10px",
+                border: "1px solid var(--border)",
+                backgroundColor: "var(--bg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--muted)",
+                textDecoration: "none",
+                transition: "border-color 0.18s, color 0.18s, transform 0.18s",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = "var(--accent)"
+                e.currentTarget.style.color = "var(--accent)"
+                e.currentTarget.style.transform = "translateY(-2px)"
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = "var(--border)"
+                e.currentTarget.style.color = "var(--muted)"
+                e.currentTarget.style.transform = "translateY(0)"
+              }}
+            >
+              <p.Icon />
+            </a>
           ))}
         </div>
       </div>
