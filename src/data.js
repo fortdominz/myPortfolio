@@ -265,6 +265,19 @@ export const projects = [
 
 export const experience = [
   {
+    role: "OCPD Summer Experiential Learning Fellow",
+    org: "Fisk University",
+    period: "Summer 2026",
+    location: "Nashville, TN",
+    tags: ["Financial Analysis", "Power BI", "Data Analysis", "Professional Dev"],
+    bullets: [
+      "Selected for Fisk's OCPD Summer Experiential Learning cohort — structured multi-industry exposure led by practitioners across healthcare, real estate, banking, internal audit, and risk management.",
+      "Led financial analysis for a capstone investment project: pulled 5 years of Apple Inc. (AAPL) financials, surfaced $416B revenue, 46.91% gross margin, 19.5% net income growth, and declining total debt — issued a formal Buy recommendation backed by three growth vectors: Apple Intelligence, India market expansion, and services margin acceleration.",
+      "Completed hands-on Power BI training — from raw data ingestion through visualization and pattern analysis — and continued self-directed practice after the program ended.",
+      "Co-authored and presented a formal investment recommendation to Dr. Shavonte Hammond in a live 5–7 minute presentation with Q&A, acting as junior financial analyst for a hypothetical $150K client portfolio.",
+    ],
+  },
+  {
     role: "Fellow",
     org: "Propel2excel",
     period: "2026 – Present",
@@ -319,7 +332,7 @@ export const experience = [
     bullets: [
       "Consulted for a social impact startup aiming to provide 1.5M women of color and non-binary individuals leadership access.",
       "Identified and qualified 5 high-value donor organizations through mission-alignment research.",
-      "Developed a Partnership Playbook with tailored outreach strategies, presenting to executive leadership using PwC consulting frameworks.",
+      "Developed a Partnership Playbook with tailored outreach strategies and presented findings to executive leadership.",
     ],
   },
   {
@@ -441,6 +454,7 @@ export const lifejourney = [
   { id: "codepath-tip",  date: "Feb 2026",    title: "CodePath Technical Interview Prep",   type: "program",     color: "#06B6D4", tag: "Program"     },
   { id: "ey",            date: "Mar 2026",    title: "EY Expedition",                       type: "program",     color: "#06B6D4", tag: "Program"     },
   { id: "propel",        date: "2026",        title: "Propel2Excel Fellow",                 type: "program",     color: "#8B5CF6", tag: "Program"     },
+  { id: "fisk-ocpd",     date: "Summer 2026", title: "Fisk OCPD Experiential Learning",     type: "program",     color: "#F59E0B", tag: "Program"     },
   { id: "internship",    date: "Soon",        title: "First Internship",                    type: "future",      color: null,      tag: "Next Chapter" },
 ]
 
