@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { profile } from "../data"
 
 const EmailIcon = () => (
@@ -45,7 +46,7 @@ const platforms = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    display: "linkedin.com/in/dominion-eze",
+    display: "linkedin.com/in/dominioneze",
     href: profile.linkedin,
     Icon: LinkedInIcon,
     external: true,
@@ -117,6 +118,83 @@ function PlatformCard({ platform }) {
   )
 }
 
+function ContactIcons({ platforms }) {
+  const [hoveredId, setHoveredId] = useState(null)
+
+  return (
+    <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+      {platforms.map(p => {
+        const active = hoveredId === p.id
+        return (
+          <div key={p.id} style={{ position: "relative" }}>
+            <a
+              href={p.href}
+              target={p.external ? "_blank" : undefined}
+              rel={p.external ? "noreferrer" : undefined}
+              aria-label={p.display}
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "10px",
+                border: `1px solid ${active ? "var(--accent)" : "var(--border)"}`,
+                backgroundColor: "var(--bg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: active ? "var(--accent)" : "var(--muted)",
+                textDecoration: "none",
+                transform: active ? "translateY(-2px)" : "translateY(0)",
+                transition: "border-color 0.18s, color 0.18s, transform 0.18s",
+              }}
+              onMouseEnter={() => setHoveredId(p.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              <p.Icon />
+            </a>
+
+            {active && (
+              <div style={{
+                position: "absolute",
+                top: "calc(100% + 8px)",
+                left: "50%",
+                transform: "translateX(-50%)",
+                backgroundColor: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: "6px",
+                padding: "5px 10px",
+                whiteSpace: "nowrap",
+                zIndex: 50,
+                pointerEvents: "none",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+              }}>
+                <p style={{
+                  fontFamily: "JetBrains Mono, monospace",
+                  fontSize: "0.7rem",
+                  color: "var(--muted)",
+                  margin: 0,
+                }}>
+                  {p.display}
+                </p>
+                <div style={{
+                  position: "absolute",
+                  top: -4,
+                  left: "50%",
+                  transform: "translateX(-50%) rotate(45deg)",
+                  width: 7,
+                  height: 7,
+                  backgroundColor: "var(--surface)",
+                  borderLeft: "1px solid var(--border)",
+                  borderTop: "1px solid var(--border)",
+                }} />
+              </div>
+            )}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function Contact() {
   return (
     <section id="contact"
@@ -144,43 +222,7 @@ export default function Contact() {
           Open to internship opportunities, collaborations, and conversations. If something I'm building is interesting to you, reach out.
         </p>
 
-        <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-          {platforms.map(p => (
-            <a
-              key={p.id}
-              href={p.href}
-              target={p.external ? "_blank" : undefined}
-              rel={p.external ? "noreferrer" : undefined}
-              aria-label={p.label}
-              title={p.label}
-              style={{
-                width: "48px",
-                height: "48px",
-                borderRadius: "10px",
-                border: "1px solid var(--border)",
-                backgroundColor: "var(--bg)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "var(--muted)",
-                textDecoration: "none",
-                transition: "border-color 0.18s, color 0.18s, transform 0.18s",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = "var(--accent)"
-                e.currentTarget.style.color = "var(--accent)"
-                e.currentTarget.style.transform = "translateY(-2px)"
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = "var(--border)"
-                e.currentTarget.style.color = "var(--muted)"
-                e.currentTarget.style.transform = "translateY(0)"
-              }}
-            >
-              <p.Icon />
-            </a>
-          ))}
-        </div>
+        <ContactIcons platforms={platforms} />
       </div>
     </section>
   )

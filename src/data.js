@@ -8,10 +8,10 @@ export const profile = {
 I taught myself Python, completed Stanford's Code in Place, and built projects just to prove I could. Before college, I spent five years as a math teaching assistant in Nigeria. Breaking hard things down until they make sense is something I've practiced for a long time.
 
 My pace doesn't have to match anyone else's. I create my own opportunities by being consistent, curious, and proactive. Every tool I build starts as something I personally need. I keep building until others can use it too.`,
-  email: "fortdominz10@gmail.com",
+  email: "ezedominiongideon@gmail.com",
   phone: "615-587-0596",
   github: "https://github.com/fortdominz",
-  linkedin: "https://www.linkedin.com/in/dominion-eze-278b57307",
+  linkedin: "https://www.linkedin.com/in/dominioneze",
   location: "Nashville, TN",
   education: {
     school: "Fisk University",
