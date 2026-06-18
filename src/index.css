@@ -74,6 +74,55 @@ code, pre, .mono {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
+/* ── Domain Expansion Mode ─────────────────────────────────────── */
+[data-domain="expanded"] {
+  --bg: transparent;
+  --text: #D8EEFF;
+  --muted: rgba(140, 200, 235, 0.72);
+  --accent: #00C8F0;
+  --accent-dark: #009EC0;
+  --border: rgba(0, 200, 240, 0.16);
+  --nav-bg: rgba(3, 14, 28, 0.65);
+  --surface: rgba(4, 16, 32, 0.45);
+  --surface-alt: rgba(4, 16, 32, 0.3);
+  --tag-bg: rgba(0, 200, 240, 0.08);
+  --locked-bg: rgba(4, 16, 32, 0.4);
+  --terminal-bg: rgba(2, 8, 18, 0.85);
+  --terminal-green: #00F5A0;
+}
+
+[data-domain="expanded"] body {
+  background-color: transparent;
+}
+
+/* Glassmorphism on key cards */
+[data-domain="expanded"] .de-glass {
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+/* Heading glow */
+[data-domain="expanded"] h1,
+[data-domain="expanded"] h2,
+[data-domain="expanded"] h3 {
+  text-shadow: 0 0 40px rgba(0, 200, 240, 0.12);
+}
+
+/* Accent text glow */
+[data-domain="expanded"] .mono {
+  text-shadow: 0 0 20px rgba(0, 200, 240, 0.15);
+}
+
+/* Nav blur */
+[data-domain="expanded"] nav {
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+/* Scrollbar in domain mode */
+[data-domain="expanded"] ::-webkit-scrollbar-track { background: #020C18; }
+[data-domain="expanded"] ::-webkit-scrollbar-thumb { background: rgba(0,200,240,0.25); }
+
 body::after {
   content: '';
   position: fixed;

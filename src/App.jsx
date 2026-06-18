@@ -19,6 +19,9 @@ import OpenWorld     from "./pages/lifepeek/OpenWorld"
 import TouchingGrass from "./pages/lifepeek/TouchingGrass"
 import ProjectDetail from "./pages/projects/ProjectDetail"
 import ScrollToTop from "./components/ScrollToTop"
+import { DomainExpansionProvider } from "./context/DomainExpansionContext"
+import DomainExpansionBg from "./components/DomainExpansionBg"
+import DomainExpansionBtn from "./components/DomainExpansionBtn"
 
 function Portfolio({ booted, onBoot }) {
   useEffect(() => {
@@ -28,7 +31,8 @@ function Portfolio({ booted, onBoot }) {
   return (
     <>
       {!booted && <LoadingScreen onDone={onBoot} />}
-      <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", paddingBottom: "26px" }}>
+      <DomainExpansionBg />
+      <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", paddingBottom: "26px", position: "relative", zIndex: 1 }}>
         <Nav />
         <main style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <Hero />
@@ -44,6 +48,7 @@ function Portfolio({ booted, onBoot }) {
         </div>
         <StatusBar />
       </div>
+      <DomainExpansionBtn />
     </>
   )
 }
@@ -54,6 +59,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider>
+        <DomainExpansionProvider>
         <ScrollToTop />
         <Routes>
           <Route path="/"         element={<Portfolio booted={booted} onBoot={() => setBooted(true)} />} />
@@ -63,6 +69,7 @@ export default function App() {
           <Route path="/lifepeek/open-world"     element={<OpenWorld />}      />
           <Route path="/lifepeek/touching-grass" element={<TouchingGrass />}  />
         </Routes>
+        </DomainExpansionProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
