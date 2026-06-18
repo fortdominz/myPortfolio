@@ -16,6 +16,16 @@ const LockIcon = () => (
   </svg>
 )
 
+const ChevronIcon = ({ open }) => (
+  <svg
+    width="16" height="16" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+    style={{ transition: "transform 0.25s", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+  >
+    <polyline points="6 9 12 15 18 9"/>
+  </svg>
+)
+
 function ProjectCard({ project }) {
   const [expanded, setExpanded] = useState(false)
   const s = statusConfig[project.status]
@@ -208,6 +218,11 @@ function ProjectCard({ project }) {
 }
 
 export default function Projects() {
+  const [plannedOpen, setPlannedOpen] = useState(false)
+
+  const complete = projects.filter(p => p.status !== "planned")
+  const planned  = projects.filter(p => p.status === "planned")
+
   return (
     <section id="projects"
       className="max-w-5xl mx-auto px-6"
@@ -222,13 +237,75 @@ export default function Projects() {
         </p>
       </div>
 
+      {/* Shipped projects */}
       <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
-        {projects.map((p, i) => (
+        {complete.map((p, i) => (
           <FadeIn key={p.id} delay={i * 80} direction="up">
             <ProjectCard project={p} />
           </FadeIn>
         ))}
       </div>
+
+      {/* In Development accordion */}
+      {planned.length > 0 && (
+        <div style={{ marginTop: "2.5rem" }}>
+          <button
+            onClick={() => setPlannedOpen(o => !o)}
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "14px 18px",
+              border: "1px solid var(--border)",
+              borderRadius: plannedOpen ? "10px 10px 0 0" : "10px",
+              backgroundColor: "var(--surface)",
+              cursor: "pointer",
+              transition: "border-color 0.18s, background-color 0.18s",
+            }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = "var(--accent)"}
+            onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <span className="mono" style={{ fontSize: "0.72rem", color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                In Development
+              </span>
+              <span style={{
+                fontSize: "0.7rem",
+                fontWeight: 600,
+                padding: "2px 8px",
+                borderRadius: "20px",
+                color: "#B87820",
+                backgroundColor: "rgba(255,184,100,0.15)",
+                fontFamily: "Geist, sans-serif",
+              }}>
+                {planned.length} planned
+              </span>
+            </div>
+            <span style={{ color: "var(--muted)" }}>
+              <ChevronIcon open={plannedOpen} />
+            </span>
+          </button>
+
+          {plannedOpen && (
+            <div style={{
+              border: "1px solid var(--border)",
+              borderTop: "none",
+              borderRadius: "0 0 10px 10px",
+              padding: "20px",
+              backgroundColor: "var(--bg)",
+            }}>
+              <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+                {planned.map((p, i) => (
+                  <FadeIn key={p.id} delay={i * 60} direction="up">
+                    <ProjectCard project={p} />
+                  </FadeIn>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </section>
   )
 }
