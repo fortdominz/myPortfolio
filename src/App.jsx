@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ThemeProvider } from "./ThemeContext"
+import { FrostProvider } from "./context/FrostContext"
 import Nav from "./components/Nav"
 import Hero from "./components/Hero"
 import About from "./components/About"
@@ -13,15 +14,14 @@ import Footer from "./components/Footer"
 import LoadingScreen from "./components/LoadingScreen"
 import StatusBar from "./components/StatusBar"
 import FadeIn from "./components/FadeIn"
-import LifePeekHub    from "./pages/lifepeek/LifePeekHub"
+import FrostBg from "./components/FrostBg"
+import FrostToggle from "./components/FrostToggle"
 import LifeJourney   from "./pages/lifepeek/LifeJourney"
 import OpenWorld     from "./pages/lifepeek/OpenWorld"
 import TouchingGrass from "./pages/lifepeek/TouchingGrass"
 import ProjectDetail from "./pages/projects/ProjectDetail"
 import ScrollToTop from "./components/ScrollToTop"
-import { DomainExpansionProvider } from "./context/DomainExpansionContext"
-import DomainExpansionBg from "./components/DomainExpansionBg"
-import DomainExpansionBtn from "./components/DomainExpansionBtn"
+import CommandDeck from "./components/CommandDeck"
 
 function Portfolio({ booted, onBoot }) {
   useEffect(() => {
@@ -31,8 +31,9 @@ function Portfolio({ booted, onBoot }) {
   return (
     <>
       {!booted && <LoadingScreen onDone={onBoot} />}
-      <DomainExpansionBg />
-      <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", paddingBottom: "26px", position: "relative", zIndex: 1 }}>
+      {/* Glacial atmosphere — only renders while Frost mode is engaged */}
+      <FrostBg />
+      <div className="frost-shell" style={{ minHeight: "100vh", backgroundColor: "var(--bg)", paddingBottom: "26px", position: "relative", zIndex: 1 }}>
         <Nav />
         <main style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <Hero />
@@ -48,7 +49,8 @@ function Portfolio({ booted, onBoot }) {
         </div>
         <StatusBar />
       </div>
-      <DomainExpansionBtn />
+      {/* Add Frost / Release control */}
+      <FrostToggle />
     </>
   )
 }
@@ -59,17 +61,17 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider>
-        <DomainExpansionProvider>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/"         element={<Portfolio booted={booted} onBoot={() => setBooted(true)} />} />
-          <Route path="/projects/:id"             element={<ProjectDetail />}  />
-          <Route path="/lifepeek"                element={<LifePeekHub />}    />
-          <Route path="/lifepeek/life-journey"   element={<LifeJourney />}    />
-          <Route path="/lifepeek/open-world"     element={<OpenWorld />}      />
-          <Route path="/lifepeek/touching-grass" element={<TouchingGrass />}  />
-        </Routes>
-        </DomainExpansionProvider>
+        <FrostProvider>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/"         element={<Portfolio booted={booted} onBoot={() => setBooted(true)} />} />
+            <Route path="/projects/:id"             element={<ProjectDetail />}  />
+            <Route path="/lifepeek"                element={<CommandDeck />}    />
+            <Route path="/lifepeek/life-journey"   element={<LifeJourney />}    />
+            <Route path="/lifepeek/open-world"     element={<OpenWorld />}      />
+            <Route path="/lifepeek/touching-grass" element={<TouchingGrass />}  />
+          </Routes>
+        </FrostProvider>
       </ThemeProvider>
     </BrowserRouter>
   )

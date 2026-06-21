@@ -617,49 +617,286 @@ export const certifications = [
 
 // ── LIFEPEEK ─────────────────────────────────────────────────────────────────
 
-// Life Journey — horizontal timeline milestones
+// Life Journey — scroll-driven roadmap checkpoints
 // types: 'milestone' | 'program' | 'experience' | 'future'
+// Each checkpoint: phase (era grouping) + summary (the brief, shown on scroll)
+//   + points (key bullets) + detail (the full story, shown on click) + optional links
 export const lifejourney = [
-  { id: "fisk-start",    date: "Jan 2025",    title: "Arrived at Fisk University",          type: "milestone",   color: "#2563EB", tag: "Education"   },
-  { id: "stanford",      date: "Apr 2025",    title: "Stanford Code in Place",              type: "program",     color: "#EF4444", tag: "Program"     },
-  { id: "web101",        date: "Apr 2025",    title: "CodePath WEB101",                     type: "program",     color: "#10B981", tag: "Program"     },
-  { id: "oracle",        date: "May 2025",    title: "Oracle REACH",                        type: "program",     color: "#F59E0B", tag: "Program"     },
-  { id: "pwc",           date: "Jul 2025",    title: "Extern · Remote Program",             type: "experience",  color: "#EF4444", tag: "Experience"  },
-  { id: "summer-build",  date: "Summer 2025", title: "15+ Python Projects Built",           type: "milestone",   color: "#2563EB", tag: "Build Sprint" },
-  { id: "codepath-ai",   date: "Feb 2026",    title: "CodePath AI Engineering Fellow",      type: "program",     color: "#8B5CF6", tag: "Program"     },
-  { id: "codepath-tip",  date: "Feb 2026",    title: "CodePath Technical Interview Prep",   type: "program",     color: "#06B6D4", tag: "Program"     },
-  { id: "ey",            date: "Mar 2026",    title: "EY Expedition",                       type: "program",     color: "#06B6D4", tag: "Program"     },
-  { id: "propel",        date: "2026",        title: "Propel2Excel Fellow",                 type: "program",     color: "#8B5CF6", tag: "Program"     },
-  { id: "fisk-ocpd",     date: "Summer 2026", title: "Fisk OCPD Experiential Learning",     type: "program",     color: "#F59E0B", tag: "Program"     },
-  { id: "internship",    date: "Soon",        title: "First Internship",                    type: "future",      color: null,      tag: "Next Chapter" },
-]
-
-// Open World — educational program posts
-// images: paths relative to /public (e.g. '/life/ey-week1.jpg')
-// Leave images: [] until you have photos — card renders without image gracefully
-export const openworld = [
   {
-    id: "ey-expedition-start",
-    date: "Mar 2026",
-    program: "EY Expedition",
-    title: "Week 1 at EY Expedition",
-    body: "First week in the EY Expedition accelerator. Covered AI fundamentals, digital transformation frameworks, and what it actually means to consult at a Big 4 firm. The cohort is sharp — being in a room of people who are actually hungry is different. This is going to push me.",
-    images: [],
-    tags: ["EY", "consulting", "accelerator"],
+    id: "fisk-start", date: "Jan 2025", title: "Arrived at Fisk University",
+    type: "milestone", color: "#2563EB", tag: "Origin",
+    phase: "2025 · Building the Foundation",
+    summary: "Flew in from Lagos a semester late — visa delays pushed my start back, and there were no CS classes that term. I'd barely landed and already felt behind.",
+    points: [
+      "Lagos → Nashville, on my own",
+      "Spring 2025 start, zero CS courses available",
+      "Chose to build my own curriculum instead of waiting",
+    ],
+    detail: "I landed in Nashville in January 2025 for a spring start I almost didn't get — visa delays had already pushed everything back. When I arrived, there were no CS classes offered that semester. On paper my degree hadn't even started, and I was watching everyone else move ahead of me.\n\nInstead of treating it as lost time, I decided the gap was mine to fill. That single decision — to build my own curriculum and manufacture momentum nobody handed me — is the reason every checkpoint after this one exists.",
+  },
+  {
+    id: "stanford", date: "Apr 2025", title: "Stanford Code in Place",
+    type: "program", color: "#EF4444", tag: "Program",
+    phase: "2025 · Building the Foundation",
+    summary: "Stanford's introductory Python course — live lectures, guided exercises, a global cohort. Where structured CS thinking actually began.",
+    points: [
+      "Variables, conditionals, loops, functions",
+      "Live Stanford lectures + global community",
+      "My first real programming foundation",
+    ],
+    detail: "Stanford's Code in Place was my formal entry into programming. Live lectures, weekly sections, and a global cohort all working the same problems gave me the structure I'd been improvising on my own.\n\nIt's where loops, conditionals, and functions stopped being syntax and started being tools. By the end I wasn't following tutorials — I was writing programs because I wanted to see whether I could.",
+  },
+  {
+    id: "web101", date: "Apr 2025", title: "CodePath WEB101",
+    type: "program", color: "#10B981", tag: "Program",
+    phase: "2025 · Building the Foundation",
+    summary: "CodePath's hands-on intro to web development. HTML, CSS, JavaScript — and the first website I built with my own hands.",
+    points: [
+      "Responsive layouts + interactive UI",
+      "Built a personal website from scratch",
+      "The frontend journey officially started",
+    ],
+    detail: "WEB101 took me from \"I can write Python\" to \"I can build something people open in a browser.\" HTML structure, CSS layout, and JavaScript interactivity — taught live and hands-on.\n\nThe capstone was my first real website: responsive, interactive, mine. It's the moment the frontend half of my skill set started, and it pointed straight at the full-stack work I do now.",
+  },
+  {
+    id: "oracle", ongoing: true, date: "May 2025", title: "Oracle REACH",
+    type: "program", color: "#F59E0B", tag: "Program",
+    phase: "2025 · Building the Foundation",
+    summary: "Selected for Oracle's REACH — a professional development initiative for underrepresented students in technology.",
+    points: [
+      "Early industry exposure",
+      "Professional development + mentorship",
+    ],
+    detail: "Oracle's REACH is a professional development initiative for underrepresented students in tech. Getting selected was early proof that the work I was doing on my own was visible to people outside my own head.\n\nIt added a professional layer — how the industry actually operates — on top of the technical foundation I was building in parallel.",
+  },
+  {
+    id: "pwc", date: "Jul 2025", title: "Remote Extern",
+    type: "experience", color: "#EF4444", tag: "Experience",
+    phase: "2025 · Building the Foundation",
+    summary: "Consulted for a social-impact startup working to give 1.5M women of color and non-binary people leadership access. Real client work, real deliverables.",
+    points: [
+      "Qualified 5 high-value donor organizations",
+      "Built a Partnership Playbook with outreach strategy",
+      "Presented findings to executive leadership",
+    ],
+    detail: "Through Extern I consulted for a social-impact startup whose mission was to put 1.5 million women of color and non-binary people into leadership pipelines. This wasn't a simulation — it was real client work with a real deliverable.\n\nI researched and qualified five high-value donor organizations by mission alignment, built a Partnership Playbook with tailored outreach strategies, and presented the findings to executive leadership. My first taste of turning research into something a team could actually act on.",
+  },
+  {
+    id: "summer-build", date: "Summer 2025", title: "15+ Python Projects in One Summer",
+    type: "milestone", color: "#2563EB", tag: "Build Sprint",
+    phase: "2025 · Building the Foundation",
+    summary: "No CS classes meant no excuse. I taught myself Python and shipped 15+ projects in a single summer — CLI tools, GUIs, and live API integrations. No cohort. Just me.",
+    points: [
+      "ATM simulator, Snake, Blackjack, Coffee Machine (OOP)",
+      "OpenWeatherMap, Alpha Vantage, NewsAPI, Twilio integrations",
+      "Proof I could move on my own",
+    ],
+    detail: "With no CS classes that first semester, the summer of 2025 became my proving ground. I taught myself Python from scratch and shipped more than fifteen projects — an ATM simulator, Snake, Blackjack, a Coffee Machine built with OOP, Tkinter and Turtle GUIs, and live integrations with OpenWeatherMap, Alpha Vantage, NewsAPI, and Twilio.\n\nNo cohort, no deadline, no one watching. Just a list of things I wanted to understand and the discipline to build each one until it worked. Everything full-stack I've done since stands on that summer.",
+    links: [{ label: "Python CLI Suite", href: "https://github.com/fortdominz/python-cli-suite" }],
+  },
+  {
+    id: "codepath-ai", ongoing: true, date: "Feb 2026", title: "CodePath AI Engineering Fellow",
+    type: "program", color: "#8B5CF6", tag: "Fellowship",
+    phase: "2026 · Acceleration",
+    summary: "Building, evaluating, and debugging production-ready AI applications — RAG systems built with LangChain and vector databases.",
+    points: [
+      "RAG pipelines · LangChain · Pinecone / ChromaDB",
+      "Designing complex system prompts",
+      "Deploying AI features into real web apps",
+    ],
+    detail: "CodePath's AI Engineering fellowship is where I started building production-grade AI instead of toy demos. The work centers on RAG — retrieval-augmented generation with LangChain and vector databases like Pinecone and ChromaDB.\n\nDesigning system prompts that hold up, evaluating and debugging model behavior, and deploying AI features into real web apps. It's directly upstream of projects like MusicTasteMatch and the planned NorthStar and Outfitch agents.",
+  },
+  {
+    id: "codepath-tip", ongoing: true, date: "Feb 2026", title: "Technical Interview Prep",
+    type: "program", color: "#06B6D4", tag: "Fellowship",
+    phase: "2026 · Acceleration",
+    summary: "An intensive DSA fellowship — dynamic programming, backtracking, advanced graphs — practiced under real interview pressure.",
+    points: [
+      "UMPIRE framework for problem-solving",
+      "Space / time complexity optimization",
+      "Live pair-programming + peer review",
+    ],
+    detail: "Technical Interview Prep is the algorithms crucible — dynamic programming, backtracking, and advanced graph problems, drilled under real interview conditions.\n\nI use the UMPIRE framework to reason out loud, optimize for time and space, and survive live pair-programming and peer review. It's the least glamorous and most necessary preparation for the rooms I'm trying to get into.",
+  },
+  {
+    id: "ey", ongoing: true, date: "Mar 2026", title: "Expedition EY",
+    type: "program", color: "#06B6D4", tag: "Accelerator",
+    phase: "2026 · Acceleration",
+    summary: "A competitive accelerator for high-potential CS students — exploring AI, cybersecurity, and data analytics inside EY's digital transformation frameworks.",
+    points: [
+      "Technical modules + leadership workshops",
+      "Direct insight from EY technology leaders",
+      "Enterprise software + consulting methods",
+    ],
+    detail: "Expedition EY is a competitive accelerator for high-potential CS and Information Systems students. The program runs through AI, cybersecurity, and data analytics inside EY's actual digital-transformation frameworks.\n\nTechnical modules, leadership workshops, and direct conversations with EY technology leaders — exposure to how enterprise software and tech consulting work at scale, not from a textbook but from the people doing it.",
+  },
+  {
+    id: "propel", ongoing: true, date: "2026", title: "Propel2Excel Fellow",
+    type: "program", color: "#8B5CF6", tag: "Fellowship",
+    phase: "2026 · Acceleration",
+    summary: "Selected as a fellow in Propel2Excel, a program built to accelerate the careers of high-potential students.",
+    points: [
+      "Career readiness + professional polish",
+      "Leadership development",
+    ],
+    detail: "Propel2Excel selected me as a fellow in its program for accelerating the careers of high-potential students. It's the connective tissue between the technical work and the professional world — career readiness, leadership, and the polish that turns raw capability into opportunity.",
+  },
+  {
+    id: "fisk-ocpd", ongoing: true, date: "Summer 2026", title: "Fisk OCPD Experiential Learning",
+    type: "program", color: "#F59E0B", tag: "Fellowship",
+    phase: "2026 · Acceleration",
+    summary: "Fisk's OCPD experiential cohort — multi-industry exposure. I led financial analysis on an Apple capstone and issued a formal Buy recommendation.",
+    points: [
+      "AAPL: $416B revenue, 46.91% gross margin",
+      "Hands-on Power BI training",
+      "Presented an investment recommendation to Dr. Hammond",
+    ],
+    detail: "Fisk's OCPD Summer Experiential Learning cohort put me in front of practitioners across healthcare, real estate, banking, internal audit, and risk. For the capstone I acted as junior financial analyst on a hypothetical $150K portfolio.\n\nI pulled five years of Apple (AAPL) financials — $416B revenue, 46.91% gross margin, 19.5% net income growth, declining total debt — and issued a formal Buy recommendation backed by three vectors: Apple Intelligence, India expansion, and services-margin acceleration. I learned Power BI hands-on and presented the recommendation live to Dr. Shavonte Hammond with Q&A.",
+  },
+  {
+    id: "internship", date: "Soon", title: "First Internship",
+    type: "future", color: null, tag: "Next Chapter",
+    phase: "Ahead",
+    summary: "The next checkpoint. Everything so far has been preparation for this one.",
+    points: [
+      "Open for Summer 2026",
+      "Ready to build inside a real team",
+    ],
+    detail: "This is the checkpoint that's still empty — the first internship. Everything before it has been preparation: the self-teaching, the fellowships, the shipped projects, the interview reps.\n\nI'm open for Summer 2026 and ready to do the work inside a real team. When this one fills in, the whole map changes.",
   },
 ]
 
-// Touching Grass — outings, hobbies, real life moments
-// location: optional — where it happened
+// Open World — explorable map of regions (`worlds`). Each region holds PROGRAMS
+// (a program, fellowship, place, event…). Clicking a region lists its programs BY
+// NAME; clicking a program OPENS it (its own view) with an optional `description`,
+// optional `photos`, and optional `activities` (sub-tracks within one program —
+// e.g. CodePath has several). Each activity has its own name/description/photos.
+//
+// Program: { id, world, name, description?, photos?, activities?: [Activity] }
+// Activity: { id, name, description?, photos? }
+// Photo:    { src, caption, tag? }   ← tag is an optional activity/sub-label
+//
+// Photos are OPTIONAL — omit them entirely and a program/activity just shows text.
+// To add one: drop the image in /public and set src (e.g. "/openworld/ey.jpg").
+export const worlds = [
+  { id: "school",      label: "School Life",            accent: "#8FB8FF", blurb: "Life on campus at Fisk — the grind, the wins, the people." },
+  { id: "work",        label: "Work & Internships",     accent: "#7EE0BE", blurb: "What the work actually feels like from the inside." },
+  { id: "programs",    label: "Programs & Fellowships", accent: "#A9A6FF", blurb: "Inside the rooms I've earned a seat in." },
+  { id: "conferences", label: "Conferences",            accent: "#F2C879", blurb: "Talks, people, and getting out of my own head." },
+  { id: "hackathons",  label: "Hackathons",             accent: "#F29CA8", blurb: "Build sprints, late nights, shipping under pressure." },
+]
+
+export const openworld = [
+  {
+    id: "codepath",
+    world: "programs",
+    name: "CodePath",
+    description: "Intensive, project-based fellowships that bridge coursework and industry. I've gone through several of their tracks.",
+    activities: [
+      { id: "ai",     name: "AI Engineering Fellowship",   description: "Building, evaluating, and debugging production-ready AI — RAG systems with LangChain and vector databases." },
+      { id: "tip",    name: "Technical Interview Prep",     description: "Advanced DSA — dynamic programming, backtracking, and graphs — drilled under real interview pressure with the UMPIRE framework." },
+      { id: "web101", name: "WEB101 · Intro to Web Dev",    description: "My first hands-on HTML, CSS, and JavaScript — where the frontend journey officially started." },
+    ],
+  },
+  {
+    id: "ey-expedition",
+    world: "programs",
+    name: "EY Expedition",
+    description: "Competitive accelerator for high-potential CS students — AI, cybersecurity, and data analytics inside EY's digital-transformation frameworks. Week one already pushed me: a room full of hungry people hits different.",
+  },
+]
+
+// Open World — "Field Notes": the motivations / philosophy behind the work.
+// Used by the Explorer's Dossier (open-world page).
+export const fieldnotes = [
+  { label: "The thesis", text: "I build tools I actually need. Then I ship them for everyone who needs them too." },
+  { label: "On pace", text: "My pace doesn't have to match anyone else's. I create my own opportunities by being consistent, curious, and proactive." },
+  { label: "On starting late", text: "I arrived at Fisk a semester late with no CS classes that term. Instead of waiting, I built my own curriculum. That summer, I locked in." },
+  { label: "Why I build", text: "Every tool starts as something I personally need. I keep building until others can use it too." },
+  { label: "Origin discipline", text: "Five years teaching math in Lagos taught me to break hard things down until they make sense. That's still how I engineer." },
+]
+
+// Touching Grass — life outside coding, as a social feed.
+// grassProfile = the "account". grassHighlights = the story-highlight categories.
+// Each post: { id, category, date, location, caption, images:[], tags:[], likes, comments, stats? }
+//   - `category` must match a highlight id (used by the filter bubbles).
+//   - `stats` (optional) = a little stat strip for game/activity posts: [{label, value}].
+//   - Drop photos in /public (e.g. /grass/fc-mobile.jpg) and add paths to `images`.
+export const grassProfile = {
+  handle: "fortdominz",
+  name: "Dominion Eze",
+  bio: "CS @ Fisk · I build things, then I log off 🌱\n⚽ football · 🎮 mobile games · 🍿 anime & k-dramas",
+}
+
+export const grassHighlights = [
+  { id: "football", label: "Football", emoji: "⚽" },
+  { id: "gaming",   label: "Gaming",   emoji: "🎮" },
+  { id: "anime",    label: "Anime",    emoji: "🍿" },
+  { id: "kdrama",   label: "K-Dramas", emoji: "📺" },
+  { id: "travel",   label: "Travel",   emoji: "✈️" },
+  { id: "friends",  label: "Friends",  emoji: "🤝" },
+]
+
 export const touchinggrass = [
   {
     id: "nashville-first-look",
+    category: "travel",
     date: "Spring 2025",
     location: "Nashville, TN",
-    title: "Learning the city",
-    body: "First few months figuring out Nashville. Walked downtown, found the good spots, started feeling at home. Lagos to Nashville is a big jump — but the city has its own energy once you stop comparing it to what you came from.",
+    caption: "Lagos to Nashville is a big jump. Took a while, but the city has its own energy once you stop comparing it to what you came from. Slowly making this home.",
     images: [],
-    tags: ["nashville", "exploring", "new city"],
+    tags: ["nashville", "newcity", "exploring"],
+    likes: 38,
+    comments: 5,
+  },
+  {
+    id: "sunday-league",
+    category: "football",
+    date: "Recently",
+    location: "Nashville, TN",
+    caption: "Sunday league with the squad. We lost, but I'm choosing to only remember the goal I scored 🙂 worth the sore legs.",
+    images: [],
+    tags: ["football", "sundayleague", "thebeautifulgame"],
+    likes: 47,
+    comments: 9,
+  },
+  {
+    id: "fc-mobile-grind",
+    category: "gaming",
+    date: "This week",
+    location: null,
+    caption: "Ranked grind this week. Locked in (the other kind of locked in). // stats are placeholders — swap in your real ones.",
+    images: [],
+    tags: ["mobilegames", "ranked", "grind"],
+    likes: 29,
+    comments: 3,
+    stats: [
+      { label: "Main", value: "FC Mobile" },
+      { label: "This week", value: "22 matches" },
+      { label: "Win rate", value: "63%" },
+    ],
+  },
+  {
+    id: "current-rotation",
+    category: "anime",
+    date: "Lately",
+    location: null,
+    caption: "Current rotation 🍿 also taking k-drama recommendations — my watchlist is criminally short.",
+    images: [],
+    tags: ["anime", "kdrama", "watchlist"],
+    likes: 41,
+    comments: 12,
+  },
+  {
+    id: "the-people",
+    category: "friends",
+    date: "Always",
+    location: null,
+    caption: "These ones keep me sane. The building hits different when you've got people to log off with.",
+    images: [],
+    tags: ["friends", "irl", "gratitude"],
+    likes: 58,
+    comments: 7,
   },
 ]
 

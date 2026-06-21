@@ -41,6 +41,40 @@
   --locked-bg: rgba(255, 255, 255, 0.02);
 }
 
+/* ── Frost Mode (the supreme form) ─────────────────────────────── */
+/* A single attribute on <html> repaints the whole site: every component
+   already reads these vars, so the glacial palette flows everywhere.
+   html[...] specificity intentionally beats [data-theme] so Frost wins
+   over whichever light/dark theme is active underneath. */
+html[data-frost="on"] {
+  --bg: #06182B;
+  --text: #EAF4FF;
+  --muted: #9DBDD6;
+  --accent: #5FC9F8;
+  --accent-dark: #A9ECF6;
+  --terminal-bg: #05182C;
+  --terminal-text: #CFE6FB;
+  --terminal-green: #7FE7C4;
+  --terminal-blue: #A9ECF6;
+  --terminal-muted: #5C7E98;
+  --border: #1E3E58;
+  --nav-bg: rgba(8, 26, 44, 0.72);
+  --surface: rgba(125, 211, 252, 0.07);
+  --surface-alt: rgba(125, 211, 252, 0.035);
+  --tag-bg: rgba(125, 211, 252, 0.10);
+  --locked-bg: rgba(125, 211, 252, 0.03);
+  color-scheme: dark;
+}
+
+/* Reveal the FrostBg atmosphere behind the portfolio shell */
+html[data-frost="on"] .frost-shell { background-color: transparent !important; }
+
+/* Frosted-glass nav + cards while frost is engaged */
+html[data-frost="on"] nav {
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -52,7 +86,7 @@ body {
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 h1, h2, h3, h4 {
@@ -75,74 +109,7 @@ code, pre, .mono {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
 /* ── Domain Expansion Mode ─────────────────────────────────────── */
-[data-domain="expanded"] {
-  --bg: transparent;
-  --text: #EDE8FF;
-  --muted: rgba(192, 160, 255, 0.72);
-  --accent: #A855F7;
-  --accent-dark: #C084FC;
-  --border: rgba(168, 85, 247, 0.22);
-  --nav-bg: rgba(5, 0, 14, 0.72);
-  --surface: rgba(15, 5, 35, 0.52);
-  --surface-alt: rgba(15, 5, 35, 0.32);
-  --tag-bg: rgba(168, 85, 247, 0.1);
-  --locked-bg: rgba(15, 5, 35, 0.45);
-  --terminal-bg: rgba(5, 0, 18, 0.92);
-  --terminal-green: #A3FF8F;
-}
-
-[data-domain="expanded"] body {
-  background-color: transparent;
-}
-
-/* Blur all card surfaces */
-[data-domain="expanded"] .de-glass {
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-}
-
-/* Heading glow — violet */
-[data-domain="expanded"] h1,
-[data-domain="expanded"] h2,
-[data-domain="expanded"] h3 {
-  text-shadow: 0 0 50px rgba(168, 85, 247, 0.18), 0 0 100px rgba(168, 85, 247, 0.06);
-}
-
-/* Mono/code glow */
-[data-domain="expanded"] .mono,
-[data-domain="expanded"] code {
-  text-shadow: 0 0 18px rgba(192, 132, 252, 0.22);
-}
-
-/* Nav — heavy blur + glow border */
-[data-domain="expanded"] nav {
-  backdrop-filter: blur(24px) saturate(1.5) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(1.5) !important;
-  box-shadow: 0 1px 0 rgba(168, 85, 247, 0.18) !important;
-}
-
-/* Accent link underline glow */
-[data-domain="expanded"] a {
-  text-decoration-color: rgba(168, 85, 247, 0.4);
-}
-
-/* Selection */
-[data-domain="expanded"] ::selection {
-  background: rgba(168, 85, 247, 0.4);
-  color: #fff;
-}
-
-/* Scrollbar */
-[data-domain="expanded"] ::-webkit-scrollbar-track { background: #030009; }
-[data-domain="expanded"] ::-webkit-scrollbar-thumb { background: rgba(168,85,247,0.3); }
-
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  pointer-events: none;
-  z-index: 9998;
-  opacity: 0.032;
-}
+/* The Command Deck is a self-contained full-screen overlay (see
+   CommandDeck.jsx). All it needs from global CSS is a scroll lock so the
+   sealed interface doesn't scroll the portfolio underneath it. */
+[data-domain="expanded"] body { overflow: hidden; }
