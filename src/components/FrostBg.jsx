@@ -104,15 +104,28 @@ export default function FrostBg() {
       animRef.current = requestAnimationFrame(draw)
     }
 
+    // Pause the rAF loop when the tab/page is hidden — no point animating
+    // snow nobody can see, and it frees the CPU/GPU entirely while away.
+    const onVis = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animRef.current)
+      } else if (!reduce) {
+        cancelAnimationFrame(animRef.current)
+        animRef.current = requestAnimationFrame(draw)
+      }
+    }
+
     if (reduce) {
       // single static frame
       far.forEach(p => flake(p)); near.forEach(p => flake(p))
     } else {
       draw()
+      document.addEventListener("visibilitychange", onVis)
     }
     return () => {
       cancelAnimationFrame(animRef.current)
       window.removeEventListener("resize", resize)
+      document.removeEventListener("visibilitychange", onVis)
     }
   }, [visible, reduce])
 
@@ -129,17 +142,19 @@ export default function FrostBg() {
         opacity: visible ? 1 : 0, transition: "opacity 0.6s ease",
       }} />
 
-      {/* Aurora ribbons — two independently drifting washes */}
+      {/* Aurora ribbons — two independently drifting washes.
+          Blur radii kept modest: huge blur() over a full-width fixed layer is
+          pure GPU fill cost, and these are already soft radial gradients. */}
       <div style={{
         position: "fixed", top: "-16%", left: "-15%", right: "-15%", height: "56%",
-        zIndex: 0, pointerEvents: "none", filter: "blur(38px)",
+        zIndex: 0, pointerEvents: "none", filter: "blur(26px)",
         background: "radial-gradient(50% 100% at 26% 0%, rgba(125,211,252,0.28), transparent 68%), radial-gradient(46% 100% at 60% 6%, rgba(99,232,196,0.18), transparent 70%)",
         animation: anim("fr-aurora 19s ease-in-out infinite"),
         opacity: visible ? 1 : 0, transition: "opacity 0.7s ease",
       }} />
       <div style={{
         position: "fixed", top: "-18%", left: "-10%", right: "-20%", height: "52%",
-        zIndex: 0, pointerEvents: "none", filter: "blur(46px)",
+        zIndex: 0, pointerEvents: "none", filter: "blur(30px)",
         background: "radial-gradient(48% 100% at 70% 0%, rgba(169,236,246,0.2), transparent 70%), radial-gradient(42% 100% at 40% 10%, rgba(129,140,248,0.14), transparent 72%)",
         animation: anim("fr-aurora2 25s ease-in-out infinite"),
         opacity: visible ? 1 : 0, transition: "opacity 0.7s ease",
@@ -165,20 +180,26 @@ export default function FrostBg() {
         opacity: visible ? 1 : 0, transition: "opacity 0.8s ease",
       }} />
 
-      {/* Frost creeping in from the edges */}
+      {/* Frost creeping in from the edges.
+          No mixBlendMode here: a full-screen blend layer re-composites against
+          the page content on every scroll frame (the content scrolls *under*
+          this fixed layer). Plain compositing + translateZ promotes it to a
+          cached static layer that's rasterized once, so scrolling is free.
+          Opacity dialed down since we lost the additive screen glow. */}
       <div style={{
-        position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", mixBlendMode: "screen",
+        position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
+        transform: "translateZ(0)",
         backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.85 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E\")",
         backgroundSize: "cover",
         maskImage: "radial-gradient(125% 118% at 50% 44%, transparent 50%, #000 100%)",
         WebkitMaskImage: "radial-gradient(125% 118% at 50% 44%, transparent 50%, #000 100%)",
-        opacity: visible ? 0.85 : 0, transition: "opacity 0.9s ease",
+        opacity: visible ? 0.5 : 0, transition: "opacity 0.9s ease",
       }} />
 
       {/* Cold ground mist */}
       <div style={{
         position: "fixed", left: "-10%", right: "-10%", bottom: 0, height: "34%",
-        zIndex: 0, pointerEvents: "none", filter: "blur(22px)",
+        zIndex: 0, pointerEvents: "none", filter: "blur(16px)",
         background: "linear-gradient(0deg, rgba(186,230,253,0.12), rgba(125,211,252,0.05) 45%, transparent)",
         animation: anim("fr-mist 16s ease-in-out infinite"),
         opacity: visible ? 1 : 0, transition: "opacity 0.7s ease",

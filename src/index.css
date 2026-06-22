@@ -58,7 +58,7 @@ html[data-frost="on"] {
   --terminal-blue: #A9ECF6;
   --terminal-muted: #5C7E98;
   --border: #1E3E58;
-  --nav-bg: rgba(8, 26, 44, 0.72);
+  --nav-bg: rgba(7, 22, 40, 0.94);
   --surface: rgba(125, 211, 252, 0.07);
   --surface-alt: rgba(125, 211, 252, 0.035);
   --tag-bg: rgba(125, 211, 252, 0.10);
@@ -69,10 +69,16 @@ html[data-frost="on"] {
 /* Reveal the FrostBg atmosphere behind the portfolio shell */
 html[data-frost="on"] .frost-shell { background-color: transparent !important; }
 
-/* Frosted-glass nav + cards while frost is engaged */
+/* Frosted nav while frost is engaged.
+   IMPORTANT: no backdrop-filter here. The nav is sticky and sits over the
+   animating FrostBg, so any backdrop-blur re-samples + re-blurs that moving
+   atmosphere every frame (idle AND on every scroll tick) — the scroll-lag
+   culprit. We override Tailwind's backdrop-blur-sm off in frost mode and lean
+   on a near-opaque --nav-bg (0.94) to keep the solid-frosted-glass look with
+   zero per-frame blur cost. */
 html[data-frost="on"] nav {
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
